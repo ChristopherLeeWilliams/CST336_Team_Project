@@ -20,10 +20,10 @@
                 $i = 0;
                 for($i; $i < count($CPUs); $i++) {
                     echo '<tr>';
-                    echo '<td>'.$CPUs[$i]["name"].'</td>';
-                    echo '<td>'.$CPUs[$i]["baseClock"].'</td>';
-                    echo '<td>'.$CPUs[$i]["cores"].'</td>';
-                    echo '<td>$'.$CPUs[$i]["price"].'</td>';
+                    echo '<td>'.$CPUs[$i]["cpuName"].'</td>';
+                    echo '<td>'.$CPUs[$i]["cpuBaseClock"].'</td>';
+                    echo '<td>'.$CPUs[$i]["cpuNumCores"].'</td>';
+                    echo '<td>$'.$CPUs[$i]["cpuPrice"].'</td>';
                     echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?cpuId='.$CPUs[$i]["cpuId"].
                          '&remove=false">add</a></td>';
                     echo '</tr>';
@@ -38,10 +38,10 @@
 <?php
     function getCPUs($dbConn) {
          // Create sql statement
-        $sql = "SELECT CPU.cpuId, CPU.name, CPU.baseClock, CPU.cores, CPU.price
-                FROM CPU ORDER BY CPU.name";
+        $sql = "SELECT CPU.cpuId, CPU.cpuName, CPU.cpuBaseClock, CPU.cpuNumCores, CPU.cpuPrice
+                FROM CPU ORDER BY CPU.cpuName";
         
-        // prepare SQL
+        // Prepare SQL
         $stmt = $dbConn->prepare($sql);
         
         // Execute SQL
@@ -53,10 +53,10 @@
         
         while($row = $stmt->fetch()) { 
             $component["cpuId"] = $row["cpuId"];
-            $component["name"] = $row["name"];
-            $component["baseClock"] = $row["baseClock"];
-            $component["cores"] = $row["cores"];
-            $component["price"] = $row["price"];
+            $component["cpuName"] = $row["cpuName"];
+            $component["cpuBaseClock"] = $row["cpuBaseClock"];
+            $component["cpuNumCores"] = $row["cpuNumCores"];
+            $component["cpuPrice"] = $row["cpuPrice"];
             $componentArr[$i] = $component;
             $i++;
         }

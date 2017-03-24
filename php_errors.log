@@ -19,3 +19,9 @@
 [24-Mar-2017 21:16:34 UTC] PHP Fatal error:  require_once(): Failed opening required '/Team Project/connection.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 2
 [24-Mar-2017 21:16:34 UTC] PHP Stack trace:
 [24-Mar-2017 21:16:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php:0
+[24-Mar-2017 22:37:17 UTC] PHP Warning:  require_once(/Team Project/connection.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/Team Project/Component Selection/ramSelect.php on line 2
+[24-Mar-2017 22:37:17 UTC] PHP Stack trace:
+[24-Mar-2017 22:37:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/Team Project/Component Selection/ramSelect.php:0
+[24-Mar-2017 22:37:17 UTC] PHP Fatal error:  require_once(): Failed opening required '/Team Project/connection.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/Team Project/Component Selection/ramSelect.php on line 2
+[24-Mar-2017 22:37:17 UTC] PHP Stack trace:
+[24-Mar-2017 22:37:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/Team Project/Component Selection/ramSelect.php:0

@@ -25,8 +25,8 @@
                             echo '<a href="/Team Project/Component Selection/cpuSelect.php"> Choose A CPU </a>';
                             echo '</td>';
                         } else {
-                            echo '<td>'.$_SESSION["cpuSelected"]["name"].'</td>';
-                            echo '<td>'.$_SESSION["cpuSelected"]["price"].'</td>';
+                            echo '<td>'.$_SESSION["cpuSelected"]["cpuName"].'</td>';
+                            echo '<td>'.$_SESSION["cpuSelected"]["cpuPrice"].'</td>';
                             echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?remove=true">X</a></td>';
                         }
                     ?>

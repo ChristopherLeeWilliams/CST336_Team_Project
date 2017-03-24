@@ -14,7 +14,7 @@
     
     function getCPUData($dbConn, $id) {
         // Create sql statement
-        $sql = "SELECT CPU.cpuId, CPU.cpuName, CPU.cpuPrice
+        $sql = "SELECT CPU.cpuId, CPU.name, CPU.price
                 FROM CPU WHERE CPU.cpuId=$id";
         
         // prepare SQL
@@ -24,8 +24,8 @@
         $stmt->execute();
         $cpu = [];
         $row = $stmt->fetch();
-        $cpu["cpuName"] = $row["cpuName"];
-        $cpu["cpuPrice"] = $row["cpuPrice"];
+        $cpu["name"] = $row["name"];
+        $cpu["price"] = $row["price"];
         
         return $cpu;
     }

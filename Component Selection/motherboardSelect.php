@@ -5,7 +5,7 @@
 ?>
 
 <html>
-    <title>Motherboards</title>
+    <title>GPUs</title>
     
     
     
