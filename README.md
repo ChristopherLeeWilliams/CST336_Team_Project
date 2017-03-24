@@ -28,4 +28,4 @@ Rubric:
 7) The web pages have a nice and consistent look and feel (10 points)
 8) The team used Github for collaboration (10 points)
 9) The team used Trello or a similar tool for project management (10 points)
-10) In a Word document include User Story, Database schema, and mock up (5 points) UPLOAD these documents here and ALSO link them from your C9 site  (5 points)
+10) In a Word document include User Story, Database schema, and mock up (5 points) UPLOAD these documents to iLearn and ALSO link them from your C9 site  (5 points)
