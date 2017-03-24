@@ -1,22 +1,11 @@
-<?php
-// https://cst336-spring17-cwiltrams4.c9users.io/phpmyadmin
-$dbHost = getenv("IP");
-$dbPort = 3306;
-$dbName = "PCBuilder";
-$dbUsername = getenv("C9_USER");
-$dbPassword = "";
-
-// Connect to database
-$dbConn = new PDO("mysql:host=$dbHost;dbname=$dbName; port=$dbPort", $dbUsername, $dbPassword);
-
-// Start Session
-session_start();
-
+<?php 
+    require_once('connection.php');
+    session_start();
 ?>
 
 <!DOCTYPE html>
 <html>
-    <trnk rel="stylesheet" type="text/css"  href="/Team Project/CSS/tp.css">
+    <link rel="stylesheet" type="text/css"  href="/Team Project/CSS/tp.css">
     <head>
         <title> Team Project</title>
     </head>
@@ -26,21 +15,21 @@ session_start();
                 <td><b>Component</b></t>
                 <td><b>Selection</b></td>
                 <td><b>Price</b></td>
-                <td><b>Remove</b></td>
+                <td></td>
             </tr>
             <tr>
                 <td>CPU</td>
-                <td>
                     <?php 
                         if ($_SESSION["cpuSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/cpuSelect.php"> Choose A CPU </a>';
+                            echo '</td>';
                         } else {
-                            echo 'CPU Selected';
+                            echo '<td>'.$_SESSION["cpuSelected"]["name"].'</td>';
+                            echo '<td>'.$_SESSION["cpuSelected"]["price"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?remove=true">X</a></td>';
                         }
-                    ?> 
-                </td>
-                <td></td>
-                <td></td>
+                    ?>
             </tr>
             <tr>
                 <td>Motherboard</td>
