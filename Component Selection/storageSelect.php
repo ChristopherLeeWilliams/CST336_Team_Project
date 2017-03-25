@@ -4,7 +4,7 @@
 ?>
 
 <html>
-    <title>Storage</title>
+    <title>Storages</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
     <!-- Create form to select PC parts -->
     <form name="storageForm" method="GET" action="/Team Project/Component Selection Data/storageSelectData.php">
