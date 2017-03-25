@@ -61,59 +61,58 @@
             </tr>
             <tr>
                 <td>Storage</td>
-                  <td>
                     <?php 
                         if ($_SESSION["storageSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/storageSelect.php"> Choose Storage</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Storage Selected';
+                            echo '<td>'.$_SESSION["storageSelected"]["storageName"].'</td>';
+                            echo '<td>'.$_SESSION["storageSelected"]["storagePrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/storageSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
-            <tr>
                 <td>Video Card</td>
-                  <td>
                     <?php 
                         if ($_SESSION["gpuSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/gpuSelect.php"> Choose A Video Card</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Video Card Selected';
+                            echo '<td>'.$_SESSION["gpuSelected"]["gpuName"].'</td>';
+                            echo '<td>'.$_SESSION["gpuSelected"]["gpuPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/gpuSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td>Case</td>
-                  <td>
                     <?php 
                         if ($_SESSION["caseSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/caseSelect.php"> Choose A Case</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Case Selected';
+                            echo '<td>'.$_SESSION["caseSelected"]["caseName"].'</td>';
+                            echo '<td>'.$_SESSION["caseSelected"]["casePrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/caseSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td>Power Supply</td>
-                  <td>
                     <?php 
                         if ($_SESSION["psuSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/psuSelect.php"> Choose A Power Supply</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Power Supply Selected';
+                            echo '<td>'.$_SESSION["psuSelected"]["psuName"].'</td>';
+                            echo '<td>'.$_SESSION["psuSelected"]["psuPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
         </table>
     </body>
