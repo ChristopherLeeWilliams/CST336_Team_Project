@@ -6,10 +6,8 @@
 <html>
     <title>CPUs</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
-<<<<<<< HEAD
-=======
     <!-- Create form to select PC parts -->
->>>>>>> 346b6c728727ee578ce995cf22f464b2728e9cdf
+
     <form name="cpuForm" method="GET" action="/Team Project/Component Selection Data/cpuSelectData.php">
         <table>
             <!-- Put column names on top of the table -->
