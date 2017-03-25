@@ -3,30 +3,30 @@
     session_start();
     
     if($_GET["remove"] == true) {
-        $_SESSION["cpuSelected"] = NULL;
+        $_SESSION["mbSelected"] = NULL;
     }
     
-    if ($_GET["cpuId"] != NULL) {
-        $_SESSION["cpuSelected"]= getCPUData($dbConn,$_GET["cpuId"]);
+    if ($_GET["mbId"] != NULL) {
+        $_SESSION["mbSelected"]= getMbData($dbConn,$_GET["mbId"]);
         
     } 
     header("Location: /Team Project/index.php");
     
-    function getCPUData($dbConn, $id) {
+    function getMbData($dbConn, $id) {
         // Create sql statement
-        $sql = "SELECT CPU.cpuId, CPU.name, CPU.price
-                FROM CPU WHERE CPU.cpuId=$id";
+        $sql = "SELECT Motherboard.mbId, Motherboard.mbName, Motherboard.mbPrice
+                FROM Motherboard WHERE Motherboard.mbId=$id";
         
         // prepare SQL
         $stmt = $dbConn->prepare($sql);
         
         // Execute SQL
         $stmt->execute();
-        $cpu = [];
+        $mb = [];
         $row = $stmt->fetch();
-        $cpu["name"] = $row["name"];
-        $cpu["price"] = $row["price"];
+        $mb["mbName"] = $row["mbName"];
+        $mb["mbPrice"] = $row["mbPrice"];
         
-        return $cpu;
+        return $mb;
     }
 ?>

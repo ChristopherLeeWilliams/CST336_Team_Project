@@ -5,11 +5,13 @@
 
 <html>
     <title>CPUs</title>
-    <form name="cpuForm" metdod="GET" action="/Team Project/Component Selection Data/cpuSelectData.php">
+    <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <form name="cpuForm" method="GET" action="/Team Project/Component Selection Data/cpuSelectData.php">
         <table>
             <tr>
                 <td>Name</td>
                 <td>Base Clock</td>
+                <td>Socket</td>
                 <td>#Cores</td>
                 <td>Price</td>
                 <td>Add</td>
@@ -22,6 +24,7 @@
                     echo '<tr>';
                     echo '<td>'.$CPUs[$i]["cpuName"].'</td>';
                     echo '<td>'.$CPUs[$i]["cpuBaseClock"].'</td>';
+                    echo '<td>'.$CPUs[$i]["socketType"].'</td>';
                     echo '<td>'.$CPUs[$i]["cpuNumCores"].'</td>';
                     echo '<td>$'.$CPUs[$i]["cpuPrice"].'</td>';
                     echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?cpuId='.$CPUs[$i]["cpuId"].
@@ -38,8 +41,11 @@
 <?php
     function getCPUs($dbConn) {
          // Create sql statement
-        $sql = "SELECT CPU.cpuId, CPU.cpuName, CPU.cpuBaseClock, CPU.cpuNumCores, CPU.cpuPrice
-                FROM CPU ORDER BY CPU.cpuName";
+        $sql = "SELECT CPU.*, Socket.*
+                FROM CPU 
+                LEFT JOIN Socket
+                    ON CPU.cpuSocketId=Socket.socketId
+                ORDER BY CPU.cpuName";
         
         // Prepare SQL
         $stmt = $dbConn->prepare($sql);
@@ -55,6 +61,7 @@
             $component["cpuId"] = $row["cpuId"];
             $component["cpuName"] = $row["cpuName"];
             $component["cpuBaseClock"] = $row["cpuBaseClock"];
+            $component["socketType"] = $row["socketType"];
             $component["cpuNumCores"] = $row["cpuNumCores"];
             $component["cpuPrice"] = $row["cpuPrice"];
             $componentArr[$i] = $component;

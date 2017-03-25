@@ -33,31 +33,31 @@
             </tr>
             <tr>
                 <td>Motherboard</td>
-                <td>
-                    <?php 
+                <?php 
                         if ($_SESSION["mbSelected"] == NULL) {
-                            echo '<a href="/Team Project/Component Selection/motherboardSelect.php"> Choose A Motherboard </a>';
+                            echo '<td colspan=3>';
+                            echo '<a href="/Team Project/Component Selection/motherboardSelect.php"> Choose A Motherboard</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Motherboard Selected';
+                            echo '<td>'.$_SESSION["mbSelected"]["mbName"].'</td>';
+                            echo '<td>'.$_SESSION["mbSelected"]["mbPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/motherboardSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td>Memory</td>
-                <td>
                     <?php 
                         if ($_SESSION["ramSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/ramSelect.php"> Choose Memory </a>';
+                            echo '</td>';
                         } else {
-                            echo 'Memory Selected';
+                            echo '<td>'.$_SESSION["ramSelected"]["ramName"].'</td>';
+                            echo '<td>'.$_SESSION["ramSelected"]["ramPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/ramSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td>Storage</td>
