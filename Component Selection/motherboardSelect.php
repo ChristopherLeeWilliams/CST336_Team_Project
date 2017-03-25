@@ -33,15 +33,6 @@
                          '&remove=false">add</a></td>';
                     echo '</tr>';
                 }
-                /*
-                    $component["mbId"] = $row["mbId"];
-                    $component["mbName"] = $row["mbName"];
-                    $component["socketType"] = $row["socketType"];
-                    $component["mbFFType"] = $row["mbFFType"];
-                    $component["mbNumRamSlots"] = $row["mbNumRamSlots"];
-                    $component["ramType"] = $row["ramType"];
-                    $component["mbPrice"] = $row["mbPrice"];
-                */
             ?>
         </table>
     </form>
@@ -51,7 +42,6 @@
 
 <?php
     function getMotherboards($dbConn) {
-
          // Create sql statement
         $sql = "SELECT Motherboard.*, Socket.*, MBFormFactors.*, RamType.* 
                 FROM Motherboard
@@ -83,8 +73,6 @@
             $componentArr[$i] = $component;
             $i++;
         }
-        
         return $componentArr;
     }
-
 ?>

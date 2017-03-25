@@ -98,3 +98,7 @@
 [25-Mar-2017 01:55:41 UTC] PHP Fatal error:  require_once(): Failed opening required '/Team Project/connection.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/Team Project/Component Selection/psuSelect.php on line 2
 [25-Mar-2017 01:55:41 UTC] PHP Stack trace:
 [25-Mar-2017 01:55:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/Team Project/Component Selection/psuSelect.php:0
+[25-Mar-2017 04:19:33 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 81
+[25-Mar-2017 04:19:38 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 81
+[25-Mar-2017 04:23:37 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 80
+[25-Mar-2017 04:25:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 78

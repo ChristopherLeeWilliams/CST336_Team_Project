@@ -112,8 +112,17 @@
                             echo '<td>'.$_SESSION["psuSelected"]["psuPrice"].'</td>';
                             echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?remove=true">X</a></td>';
                         }
+                        
+                        $i = 0;
+                        for($i; $i < count($_SESSION["errors"]); $i++) {
+                            echo $_SESSION["errors"][$i].'</br>';
+                        }
                     ?>
             </tr>
         </table>
+        
+         <form name="compatabilityForm" method="GET" action="compatabilityCheck.php">
+             <input type="submit" name="submit" value="Check Compatability">
+         </form>
     </body>
 </html>
