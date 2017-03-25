@@ -73,19 +73,18 @@
                         }
                     ?>
             </tr>
-            <tr>
                 <td>Video Card</td>
-                  <td>
                     <?php 
                         if ($_SESSION["gpuSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/gpuSelect.php"> Choose A Video Card</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Video Card Selected';
+                            echo '<td>'.$_SESSION["gpuSelected"]["gpuName"].'</td>';
+                            echo '<td>'.$_SESSION["gpuSelected"]["gpuPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/gpuSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td>Case</td>

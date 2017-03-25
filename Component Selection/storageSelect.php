@@ -22,7 +22,7 @@
             
             <?php
                 // Print out hardware parts with relevant information
-                $storage = getStorage($dbConn);
+                $storage = getStorages($dbConn);
                 $i = 0;
                 for($i; $i < count($storage); $i++) {
                     echo '<tr>';
@@ -44,7 +44,7 @@
 
 <?php
     // Retrieves hardware information from PCParts DB
-    function getStorage($dbConn) {
+    function getStorages($dbConn) {
          // Create sql statement
         $sql = "SELECT Storage.* FROM Storage ORDER BY Storage.storageName";
         
