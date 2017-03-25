@@ -46,13 +46,11 @@
     // Retrieves hardware information from PCParts DB
     function getStorages($dbConn) {
          // Create sql statement
-        $sql = "SELECT Storage.* FROM Storage ORDER BY Storage.storageName";
-        
         $sql = "SELECT Storage.*, StorageFormFactors.*
-        FROM Storage 
-        LEFT JOIN StorageFormFactors
-            ON Storage.storageFFId=StorageFormFactors.storageFFId
-        ORDER BY Storage.storageName";
+                FROM Storage 
+                LEFT JOIN StorageFormFactors
+                    ON Storage.storageFFId=StorageFormFactors.storageFFId
+                ORDER BY Storage.storageName";
         
         // Prepare SQL
         $stmt = $dbConn->prepare($sql);

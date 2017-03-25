@@ -88,17 +88,17 @@
             </tr>
             <tr>
                 <td>Case</td>
-                  <td>
                     <?php 
                         if ($_SESSION["caseSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/caseSelect.php"> Choose A Case</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Case Selected';
+                            echo '<td>'.$_SESSION["caseSelected"]["caseName"].'</td>';
+                            echo '<td>'.$_SESSION["caseSelected"]["casePrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/caseSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td>Power Supply</td>
