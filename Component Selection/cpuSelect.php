@@ -5,8 +5,11 @@
 
 <html>
     <title>CPUs</title>
-    <form name="cpuForm" metdod="GET" action="/Team Project/Component Selection Data/cpuSelectData.php">
+    <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <!-- Create form to select PC parts -->
+    <form name="cpuForm" method="GET" action="/Team Project/Component Selection Data/cpuSelectData.php">
         <table>
+            <!-- Put column names on top of the table -->
             <tr>
                 <td>Name</td>
                 <td>Base Clock</td>
@@ -16,6 +19,7 @@
             </tr>
             
             <?php
+            // Print out hardware parts with relevant information
                 $CPUs = getCPUs($dbConn);
                 $i = 0;
                 for($i; $i < count($CPUs); $i++) {
@@ -34,8 +38,8 @@
     
 </html>
 
-
 <?php
+    // Retrieves hardware information from PCParts DB
     function getCPUs($dbConn) {
          // Create sql statement
         $sql = "SELECT CPU.cpuId, CPU.cpuName, CPU.cpuBaseClock, CPU.cpuNumCores, CPU.cpuPrice

@@ -61,17 +61,17 @@
             </tr>
             <tr>
                 <td>Storage</td>
-                  <td>
                     <?php 
                         if ($_SESSION["storageSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/storageSelect.php"> Choose Storage</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Storage Selected';
+                            echo '<td>'.$_SESSION["storageSelected"]["storageName"].'</td>';
+                            echo '<td>'.$_SESSION["storageSelected"]["storagePrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/storageSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
             <tr>
                 <td>Video Card</td>
