@@ -102,17 +102,17 @@
             </tr>
             <tr>
                 <td>Power Supply</td>
-                  <td>
                     <?php 
                         if ($_SESSION["psuSelected"] == NULL) {
+                            echo '<td colspan=3>';
                             echo '<a href="/Team Project/Component Selection/psuSelect.php"> Choose A Power Supply</a>';
+                            echo '</td>';
                         } else {
-                            echo 'Power Supply Selected';
+                            echo '<td>'.$_SESSION["psuSelected"]["psuName"].'</td>';
+                            echo '<td>'.$_SESSION["psuSelected"]["psuPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?remove=true">X</a></td>';
                         }
                     ?>
-                </td>
-                <td></td>
-                <td></td>
             </tr>
         </table>
     </body>

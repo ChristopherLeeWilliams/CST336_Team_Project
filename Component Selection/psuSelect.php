@@ -42,8 +42,8 @@
     // Retrieves hardware information from PCParts DB
     function getPSUs($dbConn) {
          // Create sql statement
-        $sql = "SELECT psuId, psuName, psuManufacturer, psuLengthInches, psuPrice 
-                FROM psu ORDER BY psuName";
+        $sql = "SELECT psuId, psuName, psuWatts, psuModularity, psuPrice 
+                FROM PSU ORDER BY psuName";
         
         // Prepare SQL
         $stmt = $dbConn->prepare($sql);
@@ -58,8 +58,8 @@
         while($row = $stmt->fetch()) { 
             $component["psuId"] = $row["psuId"];
             $component["psuName"] = $row["psuName"];
-            $component["psuManufacturer"] = $row["psuManufacturer"];
-            $component["psuLengthInches"] = $row["psuLengthInches"];
+            $component["psuWatts"] = $row["psuWatts"];
+            $component["psuModularity"] = $row["psuModularity"];
             $component["psuPrice"] = $row["psuPrice"];
             $componentArr[$i] = $component;
             $i++;
