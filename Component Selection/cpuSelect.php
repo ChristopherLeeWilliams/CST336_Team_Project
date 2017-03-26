@@ -13,9 +13,10 @@
             <!-- Put column names on top of the table -->
             <tr>
                 <td>Name</td>
-                <td>Base Clock</td>
                 <td>Socket</td>
+                <td>Base Clock</td>
                 <td>#Cores</td>
+                <td>TDP (Watts)</td>
                 <td>Price</td>
                 <td>Add</td>
             </tr>
@@ -27,9 +28,10 @@
                 for($i; $i < count($CPUs); $i++) {
                     echo '<tr>';
                     echo '<td>'.$CPUs[$i]["cpuName"].'</td>';
-                    echo '<td>'.$CPUs[$i]["cpuBaseClock"].'</td>';
                     echo '<td>'.$CPUs[$i]["socketType"].'</td>';
+                    echo '<td>'.$CPUs[$i]["cpuBaseClock"].'</td>';
                     echo '<td>'.$CPUs[$i]["cpuNumCores"].'</td>';
+                    echo '<td>'.$CPUs[$i]["cpuTDP"].'</td>';
                     echo '<td>$'.$CPUs[$i]["cpuPrice"].'</td>';
                     echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?cpuId='.$CPUs[$i]["cpuId"].
                          '&remove=false">add</a></td>';
@@ -67,6 +69,7 @@
             $component["cpuBaseClock"] = $row["cpuBaseClock"];
             $component["socketType"] = $row["socketType"];
             $component["cpuNumCores"] = $row["cpuNumCores"];
+            $component["cpuTDP"] = $row["cpuTDP"];
             $component["cpuPrice"] = $row["cpuPrice"];
             $componentArr[$i] = $component;
             $i++;

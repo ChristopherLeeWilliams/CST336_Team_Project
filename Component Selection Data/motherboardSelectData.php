@@ -15,7 +15,7 @@
     function getMbData($dbConn, $id) {
         // Create sql statement
         $sql = "SELECT Motherboard.mbId, Motherboard.mbName, Motherboard.mbPrice,
-                Motherboard.mbSocketId, Motherboard.mbFFId, Motherboard.mbRamTypeId, Motherboard.maxRam
+                Motherboard.mbSocketId, Motherboard.mbFFId, Motherboard.mbRamTypeId, Motherboard.maxRamGB
                 FROM Motherboard WHERE Motherboard.mbId=$id";
 
         
@@ -31,7 +31,7 @@
         $mb["mbSocketId"] = $row["mbSocketId"];
         $mb["mbFFId"] = $row["mbFFId"];
         $mb["mbRamTypeId"] = $row["mbRamTypeId"];
-        $mb["maxRam"] = $row["maxRam"];
+        $mb["maxRamGB"] = $row["maxRamGB"];
         
         return $mb;
     }

@@ -15,7 +15,7 @@
     
     function getGPUData($dbConn, $id) {
         // Create sql statement
-        $sql = "SELECT gpuId, gpuName, gpuManufacturer, gpuLengthInches, gpuPrice 
+        $sql = "SELECT gpuId, gpuName, gpuManufacturer, gpuLengthInches, gpuPrice, gpuTDP
                 FROM GPU WHERE gpuId=$id";
         
         // Prepare SQL
@@ -27,6 +27,8 @@
         $row = $stmt->fetch();
         $gpu["gpuName"] = $row["gpuName"];
         $gpu["gpuPrice"] = $row["gpuPrice"];
+        $gpu["gpuLengthInches"] = $row["gpuLengthInches"];
+        $cpu["gpuTDP"] = $row["gpuTDP"];
         
         return $gpu;
     }

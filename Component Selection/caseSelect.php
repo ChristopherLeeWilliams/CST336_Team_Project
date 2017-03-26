@@ -14,8 +14,8 @@
                 <td>Name</td>
                 <td>Form Factor (Motherboard)</td>
                 <td>Maximum GPU Length (Inches)</td>
-                <td>Total 2.5" Bays</td>
-                <td>Total 3.5" Bays</td>
+                <td>2.5" Bays</td>
+                <td>3.5" Bays</td>
                 <td>Price</td>
             </tr>
             

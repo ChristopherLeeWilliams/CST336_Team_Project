@@ -26,7 +26,8 @@
         $row = $stmt->fetch();
         $case["caseName"] = $row["caseName"];
         $case["casePrice"] = $row["casePrice"];
-        
+        $case["caseFFId"] = $row["caseFFId"];
+        $case["maxGPULengthInches"] = $row["maxGPULengthInches"];
         return $case;
     }
 ?>

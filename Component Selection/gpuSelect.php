@@ -13,7 +13,10 @@
             <tr>
                 <td>Name</td>
                 <td>Manufacturer</td>
+                <td>Base Clock</td>
+                <td>Memory</td>
                 <td>Length (Inches)</td>
+                <td>TDP (Watts)</td>
                 <td>Price</td>
                 <td>Add</td>
             </tr>
@@ -26,7 +29,10 @@
                     echo '<tr>';
                     echo '<td>'.$gpu[$i]["gpuName"].'</td>';
                     echo '<td>'.$gpu[$i]["gpuManufacturer"].'</td>';
+                    echo '<td>'.$gpu[$i]["gpuBaseClock"].'</td>';
+                    echo '<td>'.$gpu[$i]["gpuMemSize"].'</td>';
                     echo '<td>'.$gpu[$i]["gpuLengthInches"].'</td>';
+                    echo '<td>'.$gpu[$i]["gpuTDP"].'</td>';
                     echo '<td>$'.$gpu[$i]["gpuPrice"].'</td>';
                     echo '<td><a href="/Team Project/Component Selection Data/gpuSelectData.php?gpuId='.$gpu[$i]["gpuId"].
                          '&remove=false">add</a></td>';
@@ -42,7 +48,7 @@
     // Retrieves hardware information from PCParts DB
     function getGPUs($dbConn) {
          // Create sql statement
-        $sql = "SELECT gpuId, gpuName, gpuManufacturer, gpuLengthInches, gpuPrice 
+        $sql = "SELECT GPU.*
                 FROM GPU ORDER BY gpuName";
         
         // Prepare SQL
@@ -59,7 +65,10 @@
             $component["gpuId"] = $row["gpuId"];
             $component["gpuName"] = $row["gpuName"];
             $component["gpuManufacturer"] = $row["gpuManufacturer"];
+            $component["gpuBaseClock"] = $row["gpuBaseClock"];
+            $component["gpuMemSize"] = $row["gpuMemSize"];
             $component["gpuLengthInches"] = $row["gpuLengthInches"];
+            $component["gpuTDP"] = $row["gpuTDP"];
             $component["gpuPrice"] = $row["gpuPrice"];
             $componentArr[$i] = $component;
             $i++;

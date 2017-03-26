@@ -27,7 +27,7 @@
         $row = $stmt->fetch();
         $psu["psuName"] = $row["psuName"];
         $psu["psuPrice"] = $row["psuPrice"];
-        
+        $psu["psuWatts"] = $row["psuWatts"];
         return $psu;
     }
 ?>

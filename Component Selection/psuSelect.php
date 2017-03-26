@@ -13,6 +13,7 @@
             <tr>
                 <td>Name</td>
                 <td>Watts</td>
+                <td>Efficiency</td>
                 <td>Modularity</td>
                 <td>Price</td>
                 <td>Add</td>
@@ -26,6 +27,7 @@
                     echo '<tr>';
                     echo '<td>'.$psu[$i]["psuName"].'</td>';
                     echo '<td>'.$psu[$i]["psuWatts"].'</td>';
+                    echo '<td>'.$psu[$i]["psuEfficiency"].'</td>';
                     echo '<td>'.$psu[$i]["psuModularity"].'</td>';
                     echo '<td>$'.$psu[$i]["psuPrice"].'</td>';
                     echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?psuId='.$psu[$i]["psuId"].
@@ -42,7 +44,7 @@
     // Retrieves hardware information from PCParts DB
     function getPSUs($dbConn) {
          // Create sql statement
-        $sql = "SELECT psuId, psuName, psuWatts, psuModularity, psuPrice 
+        $sql = "SELECT psuId, psuName, psuWatts, psuModularity, psuPrice, psuEfficiency
                 FROM PSU ORDER BY psuName";
         
         // Prepare SQL
@@ -59,6 +61,7 @@
             $component["psuId"] = $row["psuId"];
             $component["psuName"] = $row["psuName"];
             $component["psuWatts"] = $row["psuWatts"];
+            $component["psuEfficiency"] = $row["psuEfficiency"];
             $component["psuModularity"] = $row["psuModularity"];
             $component["psuPrice"] = $row["psuPrice"];
             $componentArr[$i] = $component;

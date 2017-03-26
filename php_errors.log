@@ -102,3 +102,4 @@
 [25-Mar-2017 04:19:38 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 81
 [25-Mar-2017 04:23:37 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 80
 [25-Mar-2017 04:25:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 78
+[26-Mar-2017 17:36:50 UTC] PHP Parse error:  syntax error, unexpected '[' in /home/ubuntu/workspace/Team Project/Component Selection/gpuSelect.php on line 68

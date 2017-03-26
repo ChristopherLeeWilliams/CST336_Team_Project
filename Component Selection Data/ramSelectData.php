@@ -15,7 +15,7 @@
     
     function getRAMData($dbConn, $id) {
         // Create sql statement
-        $sql = "SELECT RAM.ramId, RAM.ramName, RAM.ramPrice
+        $sql = "SELECT RAM.ramId, RAM.ramName, RAM.ramPrice, RAM.ramTypeId, RAM.ramSizeGB
                 FROM RAM WHERE RAM.ramId=$id";
         
         // prepare SQL
@@ -27,6 +27,9 @@
         $row = $stmt->fetch();
         $ram["ramName"] = $row["ramName"];
         $ram["ramPrice"] = $row["ramPrice"];
+        $ram["ramTypeId"] = $row["ramTypeId"];
+        $ram["ramSizeGB"] = $row["ramSizeGB"];
+        
         
         return $ram;
     }

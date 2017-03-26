@@ -25,7 +25,7 @@
                     echo '<tr>';
                     echo '<td>'.$ram[$i]["ramName"].'</td>';
                     echo '<td>'.$ram[$i]["ramType"].'</td>';
-                    echo '<td>'.$ram[$i]["ramSize"].'</td>';
+                    echo '<td>'.$ram[$i]["ramSizeGB"].'</td>';
                     echo '<td>'.$ram[$i]["ramSpeed"].'</td>';
                     echo '<td>'.$ram[$i]["ramCas"].'</td>';
                     echo '<td>$'.$ram[$i]["ramPrice"].'</td>';
@@ -63,7 +63,7 @@
             $component["ramId"] = $row["ramId"];
             $component["ramName"] = $row["ramName"];
             $component["ramType"] = $row["ramType"];
-            $component["ramSize"] = $row["ramSize"];
+            $component["ramSizeGB"] = $row["ramSizeGB"];
             $component["ramSpeed"] = $row["ramSpeed"];
             $component["ramCas"] = $row["ramCas"];
             $component["ramPrice"] = $row["ramPrice"];
