@@ -34,7 +34,7 @@
     
     // PSU
     $_SESSION["minWatts"] = null;
-     $_SESSION["modularity"] = null;
+    $_SESSION["modularity"] = null;
 ?>
 
 <!DOCTYPE html>
