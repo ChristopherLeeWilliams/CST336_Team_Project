@@ -10,6 +10,14 @@
     
     // Save variables to session so data persists through submits, and apply filters
     // We only want to append to our search query if the value isn't null
+    if ($_GET["formFactor"] != null) {
+        $_SESSION["formFactor"] = $_GET["formFactor"];
+        $sql .= "AND (MBFormFactors.mbFFType = '" . $_GET["formFactor"] . "') ";
+    }
+    else {
+        $_SESSION["formFactor"] = $_GET["formFactor"];
+    }    
+
     if ($_GET["ramSlots"] > 0) {
         $_SESSION["ramSlots"] = $_GET["ramSlots"];
         $sql .= "AND (Motherboard.mbNumRamSlots = '" . $_GET["ramSlots"] . "') ";
@@ -18,12 +26,12 @@
         $_SESSION["ramSlots"] = $_GET["ramSlots"];
     }
     
-    if ($_GET["formFactor"] != null) {
-        $_SESSION["formFactor"] = $_GET["formFactor"];
-        $sql .= "AND (MBFormFactors.mbFFType = '" . $_GET["formFactor"] . "') ";
+    if ($_GET["ramType"] != null) {
+        $_SESSION["ramType"] = $_GET["ramType"];
+        $sql .= "AND (RamType.ramType = '" . $_GET["ramType"] . "') ";
     }
     else {
-        $_SESSION["formFactor"] = $_GET["formFactor"];
+        $_SESSION["ramType"] = $_GET["ramType"];
     }
     
     if ($_GET["maxPrice"] != null) {
@@ -88,6 +96,15 @@
          <!-- Help saving form data across states: http://stackoverflow.com/a/2246244 -->
         <div class="form" style="padding-left: 15px;">
             <form action="motherboardSelect.php" method="GET">
+               
+                <!-- Select Form Factor -->
+                <p><label for="formFactor">Form Factor:</label>
+                <select name="formFactor" style="width:150px">
+                    <option <?php if ($_SESSION['formFactor'] == '') { ?>selected="true" <?php }; ?> value=''></option>
+                    <option <?php if ($_SESSION['formFactor'] == 'Mini-ITX') { ?>selected="true" <?php }; ?> value="Mini-ITX">Mini-ITX</option>
+                    <option <?php if ($_SESSION['formFactor'] == 'Micro-ATX') { ?>selected="true" <?php }; ?> value="Micro-ATX">Micro-ATX</option>
+                    <option <?php if ($_SESSION['formFactor'] == 'Standard-ATX') { ?>selected="true" <?php }; ?> value="Standard-ATX">Standard-ATX</option>
+                </select></p>
                 
                 <!-- Select # of RAM Slots -->
                 <p><label for="ramSlots">Ram Slots:</label>
@@ -99,13 +116,13 @@
                     <option <?php if ($_SESSION['ramSlots'] == 8) { ?>selected="true" <?php }; ?> value="8">8</option>
                 </select></p>
                 
-                <!-- Select Form Factor -->
-                <p><label for="formFactor">Form Factor:</label>
-                <select name="formFactor" style="width:150px">
-                    <option <?php if ($_SESSION['formFactor'] == '') { ?>selected="true" <?php }; ?> value=''></option>
-                    <option <?php if ($_SESSION['formFactor'] == 'Mini-ITX') { ?>selected="true" <?php }; ?> value="Mini-ITX">Mini-ITX</option>
-                    <option <?php if ($_SESSION['formFactor'] == 'Micro-ATX') { ?>selected="true" <?php }; ?> value="Micro-ATX">Micro-ATX</option>
-                    <option <?php if ($_SESSION['formFactor'] == 'Standard-ATX') { ?>selected="true" <?php }; ?> value="Standard-ATX">Standard-ATX</option>
+                <!-- Select RAM Type -->
+                <p><label for="ramType">Ram Type:</label>
+                <select name="ramType" style="width:150px">
+                    <option <?php if ($_SESSION['ramType'] == '') { ?>selected="true" <?php }; ?> value=''></option>
+                    <option <?php if ($_SESSION['ramType'] == 'DDR2') { ?>selected="true" <?php }; ?> value="DDR2">DDR2</option>
+                    <option <?php if ($_SESSION['ramType'] == 'DDR3') { ?>selected="true" <?php }; ?> value="DDR3">DDR3</option>
+                    <option <?php if ($_SESSION['ramType'] == 'DDR4') { ?>selected="true" <?php }; ?> value="DDR4">DDR4</option>
                 </select></p>
                 
                 <!-- Select maximum price -->

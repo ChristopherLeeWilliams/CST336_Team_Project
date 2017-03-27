@@ -11,8 +11,9 @@
     $_SESSION["orderBy"] = null;
     $_SESSION["sortOrder"] = null;
     
-    $_SESSION["ramSlots"] = null;
     $_SESSION["formFactor"] = null;
+    $_SESSION["ramSlots"] = null;
+    $_SESSION['ramType'] = null;
 ?>
 
 <!DOCTYPE html>
