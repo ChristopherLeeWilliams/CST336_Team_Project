@@ -31,6 +31,10 @@
     // Case
     $_SESSION["min25Bays"] = null;
     $_SESSION["min35Bays"] = null;
+    
+    // PSU
+    $_SESSION["minWatts"] = null;
+     $_SESSION["modularity"] = null;
 ?>
 
 <!DOCTYPE html>
