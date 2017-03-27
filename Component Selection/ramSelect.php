@@ -92,7 +92,7 @@
                 
                 <!-- Select maximum price -->
                 <p><label for="maxPrice">Max Price: </label>
-                <input type="number" name="maxPrice" min="0" max="1000" step=".01" style="width:50px;" value="<?php echo isset($_SESSION['maxPrice']) ? $_SESSION['maxPrice'] : '' ?>" />
+                <input type="number" name="maxPrice" min="0" max="1000" step=".01" style="width:100px;" value="<?php echo isset($_SESSION['maxPrice']) ? $_SESSION['maxPrice'] : '' ?>" />
                 
                 <!-- Select table order -->
                 <p><label for="orderBy">Order By:</label>
