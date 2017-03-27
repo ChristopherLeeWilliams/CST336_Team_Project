@@ -14,6 +14,8 @@
     $_SESSION["formFactor"] = null;
     $_SESSION["ramSlots"] = null;
     $_SESSION['ramType'] = null;
+    
+    $_SESSION['sizeGB'] == null;
 ?>
 
 <!DOCTYPE html>

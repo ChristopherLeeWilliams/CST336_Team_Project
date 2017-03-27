@@ -67,8 +67,8 @@
                 <td>Name</td>
                 <td>Socket</td>
                 <td>Form Factor</td>
-                <td># Ram Slots</td>
-                <td>Ram Type</td>
+                <td># RAM Slots</td>
+                <td>RAM Type</td>
                 <td>Price</td>
                 <td>Add</td>
             </tr>
@@ -107,7 +107,7 @@
                 </select></p>
                 
                 <!-- Select # of RAM Slots -->
-                <p><label for="ramSlots">Ram Slots:</label>
+                <p><label for="ramSlots">RAM Slots:</label>
                 <select name="ramSlots" style="width:50px">
                     <option <?php if ($_SESSION['ramSlots'] == '') { ?>selected="true" <?php }; ?> value=''></option>
                     <option <?php if ($_SESSION['ramSlots'] == 2) { ?>selected="true" <?php }; ?> value="2">2</option>
@@ -117,7 +117,7 @@
                 </select></p>
                 
                 <!-- Select RAM Type -->
-                <p><label for="ramType">Ram Type:</label>
+                <p><label for="ramType">RAM Type:</label>
                 <select name="ramType" style="width:150px">
                     <option <?php if ($_SESSION['ramType'] == '') { ?>selected="true" <?php }; ?> value=''></option>
                     <option <?php if ($_SESSION['ramType'] == 'DDR2') { ?>selected="true" <?php }; ?> value="DDR2">DDR2</option>
@@ -140,7 +140,7 @@
                 <input type="radio" name="sortOrder" checked <?php if ($_SESSION['sortOrder'] == 'asc') { ?>checked <?php }; ?> value="asc">Ascending &nbsp &nbsp &nbsp
                 <input type="radio" name="sortOrder" <?php if ($_SESSION['sortOrder'] == 'desc') { ?>checked <?php }; ?> value="desc">Descending</p>
                 
-                <p><input type="submit" name="searchCPUs" value="Search CPUs"/></p>
+                <p><input type="submit" name="searchMotherboards" value="Search Motherboards"/></p>
             </form>
     
 
