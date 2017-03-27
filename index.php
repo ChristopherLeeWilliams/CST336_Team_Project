@@ -3,6 +3,13 @@
     session_start();
     
     $_SESSION["totalPrice"] = 0;
+    
+    // Reset sorting/filtering variables when returning to hub
+    $_SESSION["sql"] = null;
+    $_SESSION["cores"] = null;
+    $_SESSION["maxPrice"] = null;
+    $_SESSION["orderBy"] = null;
+    $_SESSION["sortOrder"] = null;
 ?>
 
 <!DOCTYPE html>
