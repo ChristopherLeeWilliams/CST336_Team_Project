@@ -10,6 +10,9 @@
     $_SESSION["maxPrice"] = null;
     $_SESSION["orderBy"] = null;
     $_SESSION["sortOrder"] = null;
+    
+    $_SESSION["ramSlots"] = null;
+    $_SESSION["formFactor"] = null;
 ?>
 
 <!DOCTYPE html>

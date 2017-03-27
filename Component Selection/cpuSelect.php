@@ -7,6 +7,7 @@
             WHERE (CPU.cpuSocketId=Socket.socketId) ";
     
     // Save variables to session so data persists through submits, and apply filters
+    // We only want to append to our search query if the value isn't null
     if ($_GET["cores"] > 0) {
         $_SESSION["cores"] = $_GET["cores"];
         $sql .= "AND (CPU.cpuNumCores = '" . $_GET["cores"] . "') ";
@@ -18,6 +19,9 @@
     if ($_GET["maxPrice"] != null) {
         $_SESSION["maxPrice"] = $_GET["maxPrice"];
         $sql .= "AND (CPU.cpuPrice <= '" . $_GET["maxPrice"] . "') ";
+    }
+    else {
+        $_SESSION["maxPrice"] = $_GET["maxPrice"];
     }
     
     if ($_GET["orderBy"] != null) {
@@ -48,7 +52,7 @@
                 <td>Name</td>
                 <td>Socket</td>
                 <td>Base Clock</td>
-                <td>#Cores</td>
+                <td># Cores</td>
                 <td>TDP (Watts)</td>
                 <td>Price</td>
                 <td>Add</td>
@@ -81,7 +85,7 @@
                 
                 <!-- Select # of cores -->
                 <p><label for="cores">Cores:</label>
-                <select name="cores" style="width:30px">
+                <select name="cores" style="width:50px">
                     <option <?php if ($_SESSION['cores'] == '') { ?>selected="true" <?php }; ?> value=''></option>
                     <option <?php if ($_SESSION['cores'] == 2) { ?>selected="true" <?php }; ?> value="2">2</option>
                     <option <?php if ($_SESSION['cores'] == 4) { ?>selected="true" <?php }; ?> value="4">4</option>
