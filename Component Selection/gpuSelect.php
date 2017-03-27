@@ -1,6 +1,43 @@
 <?php
     require_once('../connection.php');
     session_start();
+
+         // Create sql statement
+        $sql = "SELECT GPU.*
+                FROM GPU WHERE GPU.gpuId = GPU.gpuId ";
+    
+    // Save variables to session so data persists through submits, and apply filters
+    // We only want to append to our search query if the value isn't null
+    if ($_GET["gpuManufacturer"] != null) {
+        $_SESSION["gpuManufacturer"] = $_GET["gpuManufacturer"];
+        $sql .= "AND (GPU.gpuManufacturer = '" . $_GET["gpuManufacturer"] . "') ";
+    }
+    else {
+        $_SESSION["gpuManufacturer"] = $_GET["gpuManufacturer"];
+    }
+    
+    if ($_GET["maxPrice"] != null) {
+        $_SESSION["maxPrice"] = $_GET["maxPrice"];
+        $sql .= "AND (GPU.gpuPrice <= '" . $_GET["maxPrice"] . "') ";
+    }
+    else {
+        $_SESSION["maxPrice"] = $_GET["maxPrice"];
+    }
+    
+    if ($_GET["orderBy"] != null) {
+        $_SESSION["orderBy"] = $_GET["orderBy"];
+        $sql .= "ORDER BY " . $_GET["orderBy"];
+    }
+    else if ($_GET["orderBy"] == null) {
+        $sql .= "ORDER BY gpu.gpuName";
+    }
+    
+    if ($_GET["sortOrder"] != null) {
+        $_SESSION["sortOrder"] = $_GET["sortOrder"];
+        $sql .= " " . $_GET["sortOrder"];
+    }
+    
+    $_SESSION["sql"] = $sql;
 ?>
 
 <html>
@@ -23,7 +60,7 @@
             
             <?php
                 // Print out hardware parts with relevant information
-                $gpu = getGPUs($dbConn);
+                $gpu = getGPUs($dbConn, $_SESSION["sql"]);
                 $i = 0;
                 for($i; $i < count($gpu); $i++) {
                     echo '<tr>';
@@ -42,14 +79,46 @@
         </table>
     </form>
     
+         <!-- Displays the form data -->
+         <!-- Help saving form data across states: http://stackoverflow.com/a/2246244 -->
+        <div class="form" style="padding-left: 15px;">
+            <form action="gpuSelect.php" method="GET">
+                
+                <!-- Select Manufacturer-->
+                <p><label for="gpuManufacturer">Manufacturer:</label>
+                <select name="gpuManufacturer" style="width:150px">
+                    <option <?php if ($_SESSION['gpuManufacturer'] == '') { ?>selected="true" <?php }; ?> value=''></option>
+                    <option <?php if ($_SESSION['gpuManufacturer'] == 'AMD') { ?>selected="true" <?php }; ?> value="AMD">AMD</option>
+                    <option <?php if ($_SESSION['gpuManufacturer'] == 'NVIDIA') { ?>selected="true" <?php }; ?> value="NVIDIA">NVIDIA</option>
+                </select></p>
+                
+                <!-- Select maximum price -->
+                <p><label for="maxPrice">Max Price: </label>
+                <input type="number" name="maxPrice" min="0" max="1000" step=".01" style="width:50px;" value="<?php echo isset($_SESSION['maxPrice']) ? $_SESSION['maxPrice'] : '' ?>" />
+                
+                <!-- Select table order -->
+                <p><label for="orderBy">Order By:</label>
+                <select name="orderBy" style="width:150px">
+                    <option <?php if ($_SESSION['orderBy'] == 'gpuName') { ?>selected="true" <?php }; ?> value="gpuName">Name</option>
+                    <option <?php if ($_SESSION['orderBy'] == 'gpuPrice') { ?>selected="true" <?php }; ?> value="gpuPrice">Price</option>
+                </select></p>
+                
+                <p><label for="sortOrder" style="width: 125px">Sort Order:</label>
+                <input type="radio" name="sortOrder" checked <?php if ($_SESSION['sortOrder'] == 'asc') { ?>checked <?php }; ?> value="asc">Ascending &nbsp &nbsp &nbsp
+                <input type="radio" name="sortOrder" <?php if ($_SESSION['sortOrder'] == 'desc') { ?>checked <?php }; ?> value="desc">Descending</p>
+                
+                <p><input type="submit" name="searchGPUs" value="Search GPUs"/></p>
+            </form>        
+    
 </html>
 
 <?php
     // Retrieves hardware information from PCParts DB
-    function getGPUs($dbConn) {
-         // Create sql statement
+    function getGPUs($dbConn, $sql) {
+        /*// Create sql statement
         $sql = "SELECT GPU.*
                 FROM GPU ORDER BY gpuName";
+        */
         
         // Prepare SQL
         $stmt = $dbConn->prepare($sql);
