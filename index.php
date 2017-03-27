@@ -27,6 +27,10 @@
     
     // GPU
     $_SESSION["gpuManufacturer"] = null;
+    
+    // Case
+    $_SESSION["min25Bays"] = null;
+    $_SESSION["min35Bays"] = null;
 ?>
 
 <!DOCTYPE html>

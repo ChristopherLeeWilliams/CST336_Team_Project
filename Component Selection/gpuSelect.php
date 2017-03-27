@@ -2,9 +2,9 @@
     require_once('../connection.php');
     session_start();
 
-         // Create sql statement
-        $sql = "SELECT GPU.*
-                FROM GPU WHERE GPU.gpuId = GPU.gpuId ";
+    // Create sql statement
+    $sql = "SELECT GPU.*
+            FROM GPU WHERE (GPU.gpuId = GPU.gpuId) ";
     
     // Save variables to session so data persists through submits, and apply filters
     // We only want to append to our search query if the value isn't null
@@ -15,7 +15,7 @@
     else {
         $_SESSION["gpuManufacturer"] = $_GET["gpuManufacturer"];
     }
-    
+
     if ($_GET["maxPrice"] != null) {
         $_SESSION["maxPrice"] = $_GET["maxPrice"];
         $sql .= "AND (GPU.gpuPrice <= '" . $_GET["maxPrice"] . "') ";
@@ -29,7 +29,7 @@
         $sql .= "ORDER BY " . $_GET["orderBy"];
     }
     else if ($_GET["orderBy"] == null) {
-        $sql .= "ORDER BY gpu.gpuName";
+        $sql .= "ORDER BY GPU.gpuName";
     }
     
     if ($_GET["sortOrder"] != null) {
