@@ -5,11 +5,12 @@
     // Used to display information on hub page
     if($_GET["remove"] == true) {
         $_SESSION["psuSelected"] = NULL;
+        $_SESSION["compatibilityChecked"] = false;
     }
     
     if ($_GET["psuId"] != NULL) {
         $_SESSION["psuSelected"]= getPSUData($dbConn,$_GET["psuId"]);
-        
+        $_SESSION["compatibilityChecked"] = false;
     } 
     header("Location: /Team Project/index.php");
     

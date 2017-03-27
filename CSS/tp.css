@@ -2,3 +2,7 @@ td, tr{
     padding: 5px;
 }
 
+.totalRow td{
+    border: solid black 2px;
+}
+

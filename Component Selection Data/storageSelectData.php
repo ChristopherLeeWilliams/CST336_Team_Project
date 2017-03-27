@@ -5,11 +5,12 @@
     // Used to display information on hub page
     if($_GET["remove"] == true) {
         $_SESSION["storageSelected"] = NULL;
+        $_SESSION["compatibilityChecked"] = false;
     }
     
     if ($_GET["storageId"] != NULL) {
         $_SESSION["storageSelected"]= getStorageData($dbConn,$_GET["storageId"]);
-        
+        $_SESSION["compatibilityChecked"] = false;
     } 
     header("Location: /Team Project/index.php");
     

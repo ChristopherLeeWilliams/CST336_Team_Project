@@ -5,11 +5,12 @@
     // Used to display information on hub page
     if($_GET["remove"] == true) {
         $_SESSION["gpuSelected"] = NULL;
+        $_SESSION["compatibilityChecked"] = false;
     }
     
     if ($_GET["gpuId"] != NULL) {
         $_SESSION["gpuSelected"]= getGPUData($dbConn,$_GET["gpuId"]);
-        
+        $_SESSION["compatibilityChecked"] = false;
     } 
     header("Location: /Team Project/index.php");
     

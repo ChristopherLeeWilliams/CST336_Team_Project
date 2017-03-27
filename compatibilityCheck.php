@@ -55,6 +55,7 @@
     }
     
     $_SESSION["errors"] = $errors;
+    $_SESSION["compatibilityChecked"] = true;
     header("Location: index.php");
     
 

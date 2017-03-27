@@ -4,11 +4,12 @@
     
     if($_GET["remove"] == true) {
         $_SESSION["cpuSelected"] = NULL;
+        $_SESSION["compatibilityChecked"] = false;
     }
     
     if ($_GET["cpuId"] != NULL) {
         $_SESSION["cpuSelected"]= getCPUData($dbConn,$_GET["cpuId"]);
-        
+        $_SESSION["compatibilityChecked"] = false;
     } 
     header("Location: /Team Project/index.php");
     

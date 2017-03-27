@@ -5,11 +5,12 @@
     // Used to display information on hub page
     if($_GET["remove"] == true) {
         $_SESSION["caseSelected"] = NULL;
+        $_SESSION["compatibilityChecked"] = false;
     }
     
     if ($_GET["caseId"] != NULL) {
         $_SESSION["caseSelected"]= getCaseData($dbConn,$_GET["caseId"]);
-        
+        $_SESSION["compatibilityChecked"] = false;
     } 
     header("Location: /Team Project/index.php");
     
