@@ -2,11 +2,12 @@
     require_once('../connection.php');
     session_start();
     
-        $sql = "SELECT Motherboard.*, Socket.*, MBFormFactors.*, RamType.* 
-                FROM Motherboard, Socket, MBFormFactors, RamType
-                WHERE (Motherboard.mbSocketId=Socket.socketId) 
-                AND (Motherboard.mbFFId=MBFormFactors.mbFFId) 
-                AND (Motherboard.mbRamTypeId=RamType.ramTypeId) ";
+    // Create sql statement
+    $sql = "SELECT Motherboard.*, Socket.*, MBFormFactors.*, RamType.* 
+            FROM Motherboard, Socket, MBFormFactors, RamType
+            WHERE (Motherboard.mbSocketId=Socket.socketId) 
+            AND (Motherboard.mbFFId=MBFormFactors.mbFFId) 
+            AND (Motherboard.mbRamTypeId=RamType.ramTypeId) ";
     
     // Save variables to session so data persists through submits, and apply filters
     // We only want to append to our search query if the value isn't null

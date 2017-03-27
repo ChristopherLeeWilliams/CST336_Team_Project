@@ -15,7 +15,8 @@
     $_SESSION["ramSlots"] = null;
     $_SESSION['ramType'] = null;
     
-    $_SESSION['sizeGB'] == null;
+    $_SESSION['sizeGB'] = null;
+    $_SESSION["storageType"] = null;
 ?>
 
 <!DOCTYPE html>

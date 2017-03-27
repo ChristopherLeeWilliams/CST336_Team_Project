@@ -2,6 +2,7 @@
     require_once('../connection.php');
     session_start();
 
+    // Create sql statement
     $sql = "SELECT RAM.*, RamType.*
             FROM RAM, RamType
             WHERE (RAM.ramTypeId=RamType.ramTypeId) ";

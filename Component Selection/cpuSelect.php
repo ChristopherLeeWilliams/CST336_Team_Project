@@ -2,6 +2,7 @@
     require_once('../connection.php');
     session_start();
     
+    // Create sql statement
     $sql = "SELECT CPU.*, Socket.*
             FROM CPU, Socket
             WHERE (CPU.cpuSocketId=Socket.socketId) ";
