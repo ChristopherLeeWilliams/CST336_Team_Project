@@ -4,6 +4,38 @@
     session_start();
     
     $_SESSION["totalPrice"] = 0;
+    
+    // Reset sorting/filtering variables when returning to hub
+    // General variables
+    $_SESSION["sql"] = null;
+    $_SESSION["maxPrice"] = null;
+    $_SESSION["orderBy"] = null;
+    $_SESSION["sortOrder"] = null;
+    
+    // CPU
+    $_SESSION["cores"] = null;
+    
+    //Motherboard
+    $_SESSION["formFactor"] = null;
+    $_SESSION["ramSlots"] = null;
+    $_SESSION['ramType'] = null;
+    
+    // RAM
+    $_SESSION['sizeGB'] = null;
+    
+    // Storage
+    $_SESSION["storageType"] = null;
+    
+    // GPU
+    $_SESSION["gpuManufacturer"] = null;
+    
+    // Case
+    $_SESSION["min25Bays"] = null;
+    $_SESSION["min35Bays"] = null;
+    
+    // PSU
+    $_SESSION["minWatts"] = null;
+    $_SESSION["modularity"] = null;
 ?>
 
 <!DOCTYPE html>

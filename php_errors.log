@@ -103,3 +103,4 @@
 [25-Mar-2017 04:23:37 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 80
 [25-Mar-2017 04:25:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/Team Project/Component Selection/motherboardSelect.php on line 78
 [26-Mar-2017 17:36:50 UTC] PHP Parse error:  syntax error, unexpected '[' in /home/ubuntu/workspace/Team Project/Component Selection/gpuSelect.php on line 68
+[27-Mar-2017 22:26:28 UTC] PHP Parse error:  syntax error, unexpected '$stmt' (T_VARIABLE) in /home/ubuntu/workspace/Team Project/Component Selection/gpuSelect.php on line 127

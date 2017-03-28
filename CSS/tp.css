@@ -6,3 +6,8 @@ td, tr{
     border: solid black 2px;
 }
 
+p label {
+    display: inline-block;
+    width: 130px;
+}
+
