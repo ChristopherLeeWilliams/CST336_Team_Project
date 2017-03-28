@@ -26,6 +26,7 @@
         $stmt->execute();
         $gpu = [];
         $row = $stmt->fetch();
+        $gpu["gpuId"] = $row["gpuId"];
         $gpu["gpuName"] = $row["gpuName"];
         $gpu["gpuPrice"] = $row["gpuPrice"];
         $gpu["gpuLengthInches"] = $row["gpuLengthInches"];

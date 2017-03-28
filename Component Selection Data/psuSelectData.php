@@ -26,6 +26,7 @@
         $stmt->execute();
         $psu = [];
         $row = $stmt->fetch();
+        $psu["psuId"] = $row["psuId"];
         $psu["psuName"] = $row["psuName"];
         $psu["psuPrice"] = $row["psuPrice"];
         $psu["psuWatts"] = $row["psuWatts"];

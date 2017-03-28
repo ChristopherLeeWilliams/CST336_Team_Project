@@ -25,6 +25,7 @@
         $stmt->execute();
         $storage = [];
         $row = $stmt->fetch();
+        $storage["storageId"] = $row["storageId"];
         $storage["storageName"] = $row["storageName"];
         $storage["storagePrice"] = $row["storagePrice"];
         

@@ -2,10 +2,6 @@ td, tr{
     padding: 5px;
 }
 
-.totalRow td{
-    border: solid black 2px;
-}
-
 p label {
     display: inline-block;
     width: 130px;

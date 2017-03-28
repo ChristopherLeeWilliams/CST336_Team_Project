@@ -1,5 +1,6 @@
 <?php
     require_once('../connection.php');
+    require_once('../descriptionFunctions.php');
     session_start();
     
     // Create sql statement
@@ -65,7 +66,10 @@
                 $i = 0;
                 for($i; $i < count($CPUs); $i++) {
                     echo '<tr>';
-                    echo '<td>'.$CPUs[$i]["cpuName"].'</td>';
+                    //echo '<td>'.$CPUs[$i]["cpuName"].'</td>';
+                    
+                    echo '<td><a href="cpuSelect.php?selectDescId='.$CPUs[$i]["cpuId"].'">'.$CPUs[$i]["cpuName"].'</a></td>';
+                    
                     echo '<td>'.$CPUs[$i]["socketType"].'</td>';
                     echo '<td>'.$CPUs[$i]["cpuBaseClock"].'</td>';
                     echo '<td>'.$CPUs[$i]["cpuNumCores"].'</td>';
@@ -75,6 +79,8 @@
                          '&remove=false">add</a></td>';
                     echo '</tr>';
                 }
+                
+                printCPUDescription($dbConn, $_GET["selectDescId"]);
             ?>
         </table>
     </form>

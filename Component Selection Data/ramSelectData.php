@@ -26,6 +26,7 @@
         $stmt->execute();
         $ram = [];
         $row = $stmt->fetch();
+        $ram["ramId"] = $row["ramId"];
         $ram["ramName"] = $row["ramName"];
         $ram["ramPrice"] = $row["ramPrice"];
         $ram["ramTypeId"] = $row["ramTypeId"];

@@ -25,6 +25,7 @@
         $stmt->execute();
         $case = [];
         $row = $stmt->fetch();
+        $case["caseId"] = $row["caseId"];
         $case["caseName"] = $row["caseName"];
         $case["casePrice"] = $row["casePrice"];
         $case["caseFFId"] = $row["caseFFId"];
