@@ -1,5 +1,6 @@
 <?php
     require_once('../connection.php');
+    require_once('../descriptionFunctions.php');
     session_start();
 
     // Create sql statement
@@ -61,7 +62,8 @@
                 $i = 0;
                 for($i; $i < count($ram); $i++) {
                     echo '<tr>';
-                    echo '<td>'.$ram[$i]["ramName"].'</td>';
+                    //echo '<td>'.$ram[$i]["ramName"].'</td>';
+                    echo '<td><a href="ramSelect.php?selectDescId='.$ram[$i]["ramId"].'">'.$ram[$i]["ramName"].'</a></td>';
                     echo '<td>'.$ram[$i]["ramType"].'</td>';
                     echo '<td>'.$ram[$i]["ramSizeGB"].'</td>';
                     echo '<td>'.$ram[$i]["ramSpeed"].'</td>';
@@ -70,6 +72,10 @@
                     echo '<td><a href="/Team Project/Component Selection Data/ramSelectData.php?ramId='.$ram[$i]["ramId"].
                          '&remove=false">add</a></td>';   
                     echo '</tr>';
+                }
+                
+                if($_GET["selectDescId"]!=NULL) {
+                    printRamDescription($dbConn, $_GET["selectDescId"]);
                 }
             ?>
         </table>

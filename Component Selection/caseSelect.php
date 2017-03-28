@@ -1,5 +1,6 @@
 <?php
     require_once('../connection.php');
+    require_once('../descriptionFunctions.php');
     session_start();
     
     // Create sql statement
@@ -71,7 +72,8 @@
                 $i = 0;
                 for($i; $i < count($case); $i++) {
                     echo '<tr>';
-                    echo '<td>'.$case[$i]["caseName"].'</td>';
+                    //echo '<td>'.$case[$i]["caseName"].'</td>';
+                    echo '<td><a href="caseSelect.php?selectDescId='.$case[$i]["caseId"].'">'.$case[$i]["caseName"].'</a></td>';
                     echo '<td>'.$case[$i]["caseFFType"].'</td>';
                     echo '<td>'.$case[$i]["maxGPULengthInches"].'</td>';
                     echo '<td>'.$case[$i]["caseNum25Bays"].'</td>';
@@ -80,6 +82,10 @@
                     echo '<td><a href="/Team Project/Component Selection Data/caseSelectData.php?caseId='.$case[$i]["caseId"].
                          '&remove=false">add</a></td>';
                     echo '</tr>';
+                }
+                
+                if($_GET["selectDescId"]!=NULL) {
+                    printCaseDescription($dbConn, $_GET["selectDescId"]);
                 }
             ?>
         </table>

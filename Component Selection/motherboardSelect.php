@@ -1,5 +1,6 @@
 <?php
     require_once('../connection.php');
+    require_once('../descriptionFunctions.php');
     session_start();
     
     // Create sql statement
@@ -79,7 +80,8 @@
                 $i = 0;
                 for($i; $i < count($mbs); $i++) {
                     echo '<tr>';
-                    echo '<td>'.$mbs[$i]["mbName"].'</td>';
+                    //echo '<td>'.$mbs[$i]["mbName"].'</td>';
+                    echo '<td><a href="motherboardSelect.php?selectDescId='.$mbs[$i]["mbId"].'">'.$mbs[$i]["mbName"].'</a></td>';
                     echo '<td>'.$mbs[$i]["socketType"].'</td>';
                     echo '<td>'.$mbs[$i]["mbFFType"].'</td>';
                     echo '<td>'.$mbs[$i]["mbNumRamSlots"].'</td>';
@@ -88,6 +90,9 @@
                     echo '<td><a href="/Team Project/Component Selection Data/motherboardSelectData.php?mbId='.$mbs[$i]["mbId"].
                          '&remove=false">add</a></td>';
                     echo '</tr>';
+                }
+                if($_GET["selectDescId"]!=NULL) {
+                    printMotherboardDescription($dbConn, $_GET["selectDescId"]);
                 }
             ?>
         </table>

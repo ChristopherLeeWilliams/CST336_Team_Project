@@ -80,7 +80,9 @@
                     echo '</tr>';
                 }
                 
-                printCPUDescription($dbConn, $_GET["selectDescId"]);
+                if($_GET["selectDescId"]!=NULL) {
+                    printCPUDescription($dbConn, $_GET["selectDescId"]);
+                }
             ?>
         </table>
     </form>

@@ -1,5 +1,6 @@
 <?php
     require_once('../connection.php');
+    require_once('../descriptionFunctions.php');
     session_start();
 
     // Create sql statement
@@ -64,7 +65,8 @@
                 $i = 0;
                 for($i; $i < count($gpu); $i++) {
                     echo '<tr>';
-                    echo '<td>'.$gpu[$i]["gpuName"].'</td>';
+                    //echo '<td>'.$gpu[$i]["gpuName"].'</td>';
+                    echo '<td><a href="gpuSelect.php?selectDescId='.$gpu[$i]["gpuId"].'">'.$gpu[$i]["gpuName"].'</a></td>';
                     echo '<td>'.$gpu[$i]["gpuManufacturer"].'</td>';
                     echo '<td>'.$gpu[$i]["gpuBaseClock"].'</td>';
                     echo '<td>'.$gpu[$i]["gpuMemSize"].'</td>';
@@ -74,6 +76,10 @@
                     echo '<td><a href="/Team Project/Component Selection Data/gpuSelectData.php?gpuId='.$gpu[$i]["gpuId"].
                          '&remove=false">add</a></td>';
                     echo '</tr>';
+                }
+                
+                if($_GET["selectDescId"]!=NULL) {
+                    printGPUDescription($dbConn, $_GET["selectDescId"]);
                 }
             ?>
         </table>

@@ -1,5 +1,6 @@
 <?php
     require_once('../connection.php');
+    require_once('../descriptionFunctions.php');
     session_start();
     
          // Create sql statement
@@ -70,7 +71,8 @@
                 $i = 0;
                 for($i; $i < count($psu); $i++) {
                     echo '<tr>';
-                    echo '<td>'.$psu[$i]["psuName"].'</td>';
+                    //echo '<td>'.$psu[$i]["psuName"].'</td>';
+                    echo '<td><a href="psuSelect.php?selectDescId='.$psu[$i]["psuId"].'">'.$psu[$i]["psuName"].'</a></td>';
                     echo '<td>'.$psu[$i]["psuWatts"].'</td>';
                     echo '<td>'.$psu[$i]["psuEfficiency"].'</td>';
                     echo '<td>'.$psu[$i]["psuModularity"].'</td>';
@@ -78,6 +80,10 @@
                     echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?psuId='.$psu[$i]["psuId"].
                          '&remove=false">add</a></td>';
                     echo '</tr>';
+                }
+                
+                if($_GET["selectDescId"]!=NULL) {
+                    printPSUDescription($dbConn, $_GET["selectDescId"]);
                 }
             ?>
         </table>

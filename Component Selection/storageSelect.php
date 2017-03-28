@@ -1,5 +1,6 @@
 <?php
     require_once('../connection.php');
+    require_once('../descriptionFunctions.php');
     session_start();
     
     // Create sql statement
@@ -64,7 +65,8 @@
                 $i = 0;
                 for($i; $i < count($storage); $i++) {
                     echo '<tr>';
-                    echo '<td>'.$storage[$i]["storageName"].'</td>';
+                    //echo '<td>'.$storage[$i]["storageName"].'</td>';
+                    echo '<td><a href="storageSelect.php?selectDescId='.$storage[$i]["storageId"].'">'.$storage[$i]["storageName"].'</a></td>';
                     echo '<td>'.$storage[$i]["storageSize"].'</td>';
                     echo '<td>'.$storage[$i]["storageType"].'</td>';
                     echo '<td>'.$storage[$i]["storageRPM"].'</td>';
@@ -73,6 +75,10 @@
                     echo '<td><a href="/Team Project/Component Selection Data/storageSelectData.php?storageId='.$storage[$i]["storageId"].
                          '&remove=false">add</a></td>';
                     echo '</tr>';
+                }
+                
+                if($_GET["selectDescId"]!=NULL) {
+                    printStorageDescription($dbConn, $_GET["selectDescId"]);
                 }
             ?>
         </table>
