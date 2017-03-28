@@ -68,13 +68,13 @@
             <div class="displayInline">
                 <table>
                     <tr>
-                        <td>Name</td>
-                        <td>Socket</td>
-                        <td>Form Factor</td>
-                        <td># RAM Slots</td>
-                        <td>RAM Type</td>
-                        <td>Price</td>
-                        <td>Add</td>
+                        <td><b>Name</b></td>
+                        <td><b>Socket</b></td>
+                        <td><b>Form Factor</b></td>
+                        <td><b># RAM Slots</b></td>
+                        <td><b>RAM Type</b></td>
+                        <td><b>Price</td>
+                        <td></td>
                     </tr>
                     
                     <?php

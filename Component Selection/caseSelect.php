@@ -60,12 +60,13 @@
                 <table>
                     <!-- Put column names on top of the table -->
                     <tr>
-                        <td>Name</td>
-                        <td>Form Factor (Motherboard)</td>
-                        <td>Maximum GPU Length (Inches)</td>
-                        <td>2.5" Bays</td>
-                        <td>3.5" Bays</td>
-                        <td>Price</td>
+                        <td><b>Name</b></td>
+                        <td><b>Form Factor (Motherboard)</b></td>
+                        <td><b>Maximum GPU Length (Inches)</b></td>
+                        <td><b>2.5" Bays</b></td>
+                        <td><b>3.5" Bays</b></td>
+                        <td><b>Price</b></td>
+                        <td></td>
                     </tr>
                     
                     <?php

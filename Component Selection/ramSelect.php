@@ -50,13 +50,13 @@
             <div class="displayInline">
                 <table>
                     <tr>
-                        <td>Name</td>
-                        <td>Type</td>
-                        <td>Size (GB)</td>
-                        <td>Speed</td>
-                        <td>Cas</td>
-                        <td>Price</td>
-                        <td>Add</td>
+                        <td><b>Name</b></td>
+                        <td><b>Type</b></td>
+                        <td><b>Size (GB)</b></td>
+                        <td><b>Speed</b></td>
+                        <td><b>Cas</b></td>
+                        <td><b>Price</b></td>
+                        <td></td>
                     </tr>
                     
                     <?php

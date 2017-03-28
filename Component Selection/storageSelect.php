@@ -52,12 +52,12 @@
                 <table>
                     <!-- Put column names on top of the table -->
                     <tr>
-                        <td>Name</td>
-                        <td>Size</td>
-                        <td>Type</td>
-                        <td>RPM</td>
-                        <td>Form Factor</td>
-                        <td>Price</td>
+                        <td><b>Name</b></td>
+                        <td><b>Size</b></td>
+                        <td><b>Type</b></td>
+                        <td><b>RPM</b></td>
+                        <td><b>Form Factor</b></td>
+                        <td><b>Price</b></td>
                         <td>Add</td>
                     </tr>
                     

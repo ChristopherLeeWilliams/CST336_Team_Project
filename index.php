@@ -215,12 +215,18 @@
         }
         ?>
         </div>
-         <form name="compatibilityForm" method="GET" action="compatibilityCheck.php">
-             <input type="submit" name="submit" value="Check compatibility">
-         </form>
-         
-         <form name="checkoutForm" method="POST" action="checkout.php">
-             <input type="submit" name="submit" value="Checkout">
-         </form>
+        </br>
+        <div class="displayMain">
+            <div class="displayInline">
+                <form name="compatibilityForm" method="GET" action="compatibilityCheck.php">
+                    <input type="submit" name="submit" value="Check compatibility">
+                </form>
+            </div>
+            <div class="displayInline">
+                <form name="checkoutForm" method="POST" action="checkout.php">
+                    <input type="submit" name="submit" value="Checkout">
+                </form>
+            </div>
+         </div>
     </body>
 </html>

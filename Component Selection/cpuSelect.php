@@ -53,13 +53,13 @@
                 <table>
                     <!-- Put column names on top of the table -->
                     <tr>
-                        <td>Name</td>
-                        <td>Socket</td>
-                        <td>Base Clock</td>
-                        <td># Cores</td>
-                        <td>TDP (Watts)</td>
-                        <td>Price</td>
-                        <td>Add</td>
+                        <td><b>Name</b></td>
+                        <td><b>Socket</b></td>
+                        <td><b>Base Clock</b></td>
+                        <td><b># Cores</b></td>
+                        <td><b>TDP (Watts)</b></td>
+                        <td><b>Price</b></td>
+                        <td></td>
                     </tr>
                     
                     <?php

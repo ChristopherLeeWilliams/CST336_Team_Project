@@ -59,12 +59,12 @@
                 <table>
                     <!-- Put column names on top of the table -->
                     <tr>
-                        <td>Name</td>
-                        <td>Watts</td>
-                        <td>Efficiency</td>
-                        <td>Modularity</td>
-                        <td>Price</td>
-                        <td>Add</td>
+                        <td><b>Name</b></td>
+                        <td><b>Watts</b></td>
+                        <td><b>Efficiency</b></td>
+                        <td><b>Modularity</b></td>
+                        <td><b>Price</td>
+                        <td></td>
                     </tr>
                     
                     <?php

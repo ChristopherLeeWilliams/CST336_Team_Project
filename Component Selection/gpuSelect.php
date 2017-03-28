@@ -51,14 +51,14 @@
                 <table>
                     <!-- Put column names on top of the table -->
                     <tr>
-                        <td>Name</td>
-                        <td>Manufacturer</td>
-                        <td>Base Clock</td>
-                        <td>Memory</td>
-                        <td>Length (Inches)</td>
-                        <td>TDP (Watts)</td>
-                        <td>Price</td>
-                        <td>Add</td>
+                        <td><b>Name</b></td>
+                        <td><b>Manufacturer</b></td>
+                        <td><b>Base Clock</b></td>
+                        <td><b>Memory</b></td>
+                        <td><b>Length (Inches)</b></td>
+                        <td><b>TDP (Watts)</b></td>
+                        <td><b>Price</td>
+                        <td></td>
                     </tr>
                     
                     <?php
