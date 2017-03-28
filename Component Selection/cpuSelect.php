@@ -48,43 +48,50 @@
     <!-- Create form to select PC parts -->
 
     <form name="cpuForm" method="GET" action="/Team Project/Component Selection Data/cpuSelectData.php">
-        <table>
-            <!-- Put column names on top of the table -->
-            <tr>
-                <td>Name</td>
-                <td>Socket</td>
-                <td>Base Clock</td>
-                <td># Cores</td>
-                <td>TDP (Watts)</td>
-                <td>Price</td>
-                <td>Add</td>
-            </tr>
-            
+        <div class="displayMain">
+            <div class="displayInline">
+                <table>
+                    <!-- Put column names on top of the table -->
+                    <tr>
+                        <td>Name</td>
+                        <td>Socket</td>
+                        <td>Base Clock</td>
+                        <td># Cores</td>
+                        <td>TDP (Watts)</td>
+                        <td>Price</td>
+                        <td>Add</td>
+                    </tr>
+                    
+                    <?php
+                    // Print out hardware parts with relevant information
+                        $CPUs = getCPUs($dbConn, $_SESSION["sql"]);
+                        $i = 0;
+                        for($i; $i < count($CPUs); $i++) {
+                            echo '<tr>';
+                            //echo '<td>'.$CPUs[$i]["cpuName"].'</td>';
+                            
+                            echo '<td><a href="cpuSelect.php?selectDescId='.$CPUs[$i]["cpuId"].'">'.$CPUs[$i]["cpuName"].'</a></td>';
+                            
+                            echo '<td>'.$CPUs[$i]["socketType"].'</td>';
+                            echo '<td>'.$CPUs[$i]["cpuBaseClock"].'</td>';
+                            echo '<td>'.$CPUs[$i]["cpuNumCores"].'</td>';
+                            echo '<td>'.$CPUs[$i]["cpuTDP"].'</td>';
+                            echo '<td>$'.$CPUs[$i]["cpuPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?cpuId='.$CPUs[$i]["cpuId"].
+                                 '&remove=false">add</a></td>';
+                            echo '</tr>';
+                        }          
+                    ?>
+                </table>
+            </div>
             <?php
-            // Print out hardware parts with relevant information
-                $CPUs = getCPUs($dbConn, $_SESSION["sql"]);
-                $i = 0;
-                for($i; $i < count($CPUs); $i++) {
-                    echo '<tr>';
-                    //echo '<td>'.$CPUs[$i]["cpuName"].'</td>';
-                    
-                    echo '<td><a href="cpuSelect.php?selectDescId='.$CPUs[$i]["cpuId"].'">'.$CPUs[$i]["cpuName"].'</a></td>';
-                    
-                    echo '<td>'.$CPUs[$i]["socketType"].'</td>';
-                    echo '<td>'.$CPUs[$i]["cpuBaseClock"].'</td>';
-                    echo '<td>'.$CPUs[$i]["cpuNumCores"].'</td>';
-                    echo '<td>'.$CPUs[$i]["cpuTDP"].'</td>';
-                    echo '<td>$'.$CPUs[$i]["cpuPrice"].'</td>';
-                    echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?cpuId='.$CPUs[$i]["cpuId"].
-                         '&remove=false">add</a></td>';
-                    echo '</tr>';
-                }
-                
                 if($_GET["selectDescId"]!=NULL) {
+                    echo '<div class="displayInlineDescription">';
                     printCPUDescription($dbConn, $_GET["selectDescId"]);
+                    echo '</div>';
                 }
             ?>
-        </table>
+        </div>
     </form>
     
          <!-- Displays the form data -->

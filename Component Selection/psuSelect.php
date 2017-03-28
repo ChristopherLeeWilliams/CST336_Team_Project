@@ -54,39 +54,46 @@
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
     <!-- Create form to select PC parts -->
     <form name="psuForm" method="GET" action="/Team Project/Component Selection Data/psuSelectData.php">
-        <table>
-            <!-- Put column names on top of the table -->
-            <tr>
-                <td>Name</td>
-                <td>Watts</td>
-                <td>Efficiency</td>
-                <td>Modularity</td>
-                <td>Price</td>
-                <td>Add</td>
-            </tr>
-            
+        <div class="displayMain">
+            <div class="displayInline">
+                <table>
+                    <!-- Put column names on top of the table -->
+                    <tr>
+                        <td>Name</td>
+                        <td>Watts</td>
+                        <td>Efficiency</td>
+                        <td>Modularity</td>
+                        <td>Price</td>
+                        <td>Add</td>
+                    </tr>
+                    
+                    <?php
+                        // Print out hardware parts with relevant information
+                        $psu = getPSUs($dbConn, $_SESSION["sql"]);
+                        $i = 0;
+                        for($i; $i < count($psu); $i++) {
+                            echo '<tr>';
+                            //echo '<td>'.$psu[$i]["psuName"].'</td>';
+                            echo '<td><a href="psuSelect.php?selectDescId='.$psu[$i]["psuId"].'">'.$psu[$i]["psuName"].'</a></td>';
+                            echo '<td>'.$psu[$i]["psuWatts"].'</td>';
+                            echo '<td>'.$psu[$i]["psuEfficiency"].'</td>';
+                            echo '<td>'.$psu[$i]["psuModularity"].'</td>';
+                            echo '<td>$'.$psu[$i]["psuPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?psuId='.$psu[$i]["psuId"].
+                                 '&remove=false">add</a></td>';
+                            echo '</tr>';
+                        }
+                    ?>
+                </table>
+            </div>
             <?php
-                // Print out hardware parts with relevant information
-                $psu = getPSUs($dbConn, $_SESSION["sql"]);
-                $i = 0;
-                for($i; $i < count($psu); $i++) {
-                    echo '<tr>';
-                    //echo '<td>'.$psu[$i]["psuName"].'</td>';
-                    echo '<td><a href="psuSelect.php?selectDescId='.$psu[$i]["psuId"].'">'.$psu[$i]["psuName"].'</a></td>';
-                    echo '<td>'.$psu[$i]["psuWatts"].'</td>';
-                    echo '<td>'.$psu[$i]["psuEfficiency"].'</td>';
-                    echo '<td>'.$psu[$i]["psuModularity"].'</td>';
-                    echo '<td>$'.$psu[$i]["psuPrice"].'</td>';
-                    echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?psuId='.$psu[$i]["psuId"].
-                         '&remove=false">add</a></td>';
-                    echo '</tr>';
-                }
-                
                 if($_GET["selectDescId"]!=NULL) {
+                    echo '<div class="displayInlineDescription">';
                     printPSUDescription($dbConn, $_GET["selectDescId"]);
+                    echo '</div>';
                 }
             ?>
-        </table>
+        </div>
     </form>
     
         <!-- Displays the form data -->

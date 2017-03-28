@@ -64,38 +64,46 @@
     <title>Motherboards</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
     <form name="motherboardForm" method="GET" action="/Team Project/Component Selection Data/motherboardSelectData.php">
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Socket</td>
-                <td>Form Factor</td>
-                <td># RAM Slots</td>
-                <td>RAM Type</td>
-                <td>Price</td>
-                <td>Add</td>
-            </tr>
-            
+        <div class="displayMain">
+            <div class="displayInline">
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>Socket</td>
+                        <td>Form Factor</td>
+                        <td># RAM Slots</td>
+                        <td>RAM Type</td>
+                        <td>Price</td>
+                        <td>Add</td>
+                    </tr>
+                    
+                    <?php
+                        $mbs = getMotherboards($dbConn, $_SESSION["sql"]);
+                        $i = 0;
+                        for($i; $i < count($mbs); $i++) {
+                            echo '<tr>';
+                            //echo '<td>'.$mbs[$i]["mbName"].'</td>';
+                            echo '<td><a href="motherboardSelect.php?selectDescId='.$mbs[$i]["mbId"].'">'.$mbs[$i]["mbName"].'</a></td>';
+                            echo '<td>'.$mbs[$i]["socketType"].'</td>';
+                            echo '<td>'.$mbs[$i]["mbFFType"].'</td>';
+                            echo '<td>'.$mbs[$i]["mbNumRamSlots"].'</td>';
+                            echo '<td>'.$mbs[$i]["ramType"].'</td>';
+                            echo '<td>$'.$mbs[$i]["mbPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/motherboardSelectData.php?mbId='.$mbs[$i]["mbId"].
+                                 '&remove=false">add</a></td>';
+                            echo '</tr>';
+                        }
+                    ?>
+                </table>
+            </div>
             <?php
-                $mbs = getMotherboards($dbConn, $_SESSION["sql"]);
-                $i = 0;
-                for($i; $i < count($mbs); $i++) {
-                    echo '<tr>';
-                    //echo '<td>'.$mbs[$i]["mbName"].'</td>';
-                    echo '<td><a href="motherboardSelect.php?selectDescId='.$mbs[$i]["mbId"].'">'.$mbs[$i]["mbName"].'</a></td>';
-                    echo '<td>'.$mbs[$i]["socketType"].'</td>';
-                    echo '<td>'.$mbs[$i]["mbFFType"].'</td>';
-                    echo '<td>'.$mbs[$i]["mbNumRamSlots"].'</td>';
-                    echo '<td>'.$mbs[$i]["ramType"].'</td>';
-                    echo '<td>$'.$mbs[$i]["mbPrice"].'</td>';
-                    echo '<td><a href="/Team Project/Component Selection Data/motherboardSelectData.php?mbId='.$mbs[$i]["mbId"].
-                         '&remove=false">add</a></td>';
-                    echo '</tr>';
-                }
                 if($_GET["selectDescId"]!=NULL) {
+                    echo '<div class="displayInlineDescription">';
                     printMotherboardDescription($dbConn, $_GET["selectDescId"]);
+                    echo '</div>';
                 }
             ?>
-        </table>
+        </div>
     </form>
 
          <!-- Displays the form data -->

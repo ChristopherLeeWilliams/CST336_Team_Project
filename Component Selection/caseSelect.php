@@ -55,40 +55,47 @@
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
     <!-- Create form to select PC parts -->
     <form name="caseForm" method="GET" action="/Team Project/Component Selection Data/caseSelectData.php">
-        <table>
-            <!-- Put column names on top of the table -->
-            <tr>
-                <td>Name</td>
-                <td>Form Factor (Motherboard)</td>
-                <td>Maximum GPU Length (Inches)</td>
-                <td>2.5" Bays</td>
-                <td>3.5" Bays</td>
-                <td>Price</td>
-            </tr>
-            
+        <div class="displayMain">
+            <div class="displayInline">
+                <table>
+                    <!-- Put column names on top of the table -->
+                    <tr>
+                        <td>Name</td>
+                        <td>Form Factor (Motherboard)</td>
+                        <td>Maximum GPU Length (Inches)</td>
+                        <td>2.5" Bays</td>
+                        <td>3.5" Bays</td>
+                        <td>Price</td>
+                    </tr>
+                    
+                    <?php
+                        // Print out hardware parts with relevant information
+                        $case = getCases($dbConn, $_SESSION["sql"]);
+                        $i = 0;
+                        for($i; $i < count($case); $i++) {
+                            echo '<tr>';
+                            //echo '<td>'.$case[$i]["caseName"].'</td>';
+                            echo '<td><a href="caseSelect.php?selectDescId='.$case[$i]["caseId"].'">'.$case[$i]["caseName"].'</a></td>';
+                            echo '<td>'.$case[$i]["caseFFType"].'</td>';
+                            echo '<td>'.$case[$i]["maxGPULengthInches"].'</td>';
+                            echo '<td>'.$case[$i]["caseNum25Bays"].'</td>';
+                            echo '<td>'.$case[$i]["caseNum35Bays"].'</td>';
+                            echo '<td>$'.$case[$i]["casePrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/caseSelectData.php?caseId='.$case[$i]["caseId"].
+                                 '&remove=false">add</a></td>';
+                            echo '</tr>';
+                        }
+                    ?>
+                </table>
+            </div>
             <?php
-                // Print out hardware parts with relevant information
-                $case = getCases($dbConn, $_SESSION["sql"]);
-                $i = 0;
-                for($i; $i < count($case); $i++) {
-                    echo '<tr>';
-                    //echo '<td>'.$case[$i]["caseName"].'</td>';
-                    echo '<td><a href="caseSelect.php?selectDescId='.$case[$i]["caseId"].'">'.$case[$i]["caseName"].'</a></td>';
-                    echo '<td>'.$case[$i]["caseFFType"].'</td>';
-                    echo '<td>'.$case[$i]["maxGPULengthInches"].'</td>';
-                    echo '<td>'.$case[$i]["caseNum25Bays"].'</td>';
-                    echo '<td>'.$case[$i]["caseNum35Bays"].'</td>';
-                    echo '<td>$'.$case[$i]["casePrice"].'</td>';
-                    echo '<td><a href="/Team Project/Component Selection Data/caseSelectData.php?caseId='.$case[$i]["caseId"].
-                         '&remove=false">add</a></td>';
-                    echo '</tr>';
-                }
-                
                 if($_GET["selectDescId"]!=NULL) {
+                    echo '<div class="displayInlineDescription">';
                     printCaseDescription($dbConn, $_GET["selectDescId"]);
+                    echo '</div>';
                 }
             ?>
-        </table>
+        </div>
     </form>
     
          <!-- Displays the form data -->

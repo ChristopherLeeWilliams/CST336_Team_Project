@@ -46,43 +46,50 @@
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
     <!-- Create form to select PC parts -->
     <form name="gpuForm" method="GET" action="/Team Project/Component Selection Data/gpuSelectData.php">
-        <table>
-            <!-- Put column names on top of the table -->
-            <tr>
-                <td>Name</td>
-                <td>Manufacturer</td>
-                <td>Base Clock</td>
-                <td>Memory</td>
-                <td>Length (Inches)</td>
-                <td>TDP (Watts)</td>
-                <td>Price</td>
-                <td>Add</td>
-            </tr>
-            
+        <div class="displayMain">
+            <div class="displayInline">
+                <table>
+                    <!-- Put column names on top of the table -->
+                    <tr>
+                        <td>Name</td>
+                        <td>Manufacturer</td>
+                        <td>Base Clock</td>
+                        <td>Memory</td>
+                        <td>Length (Inches)</td>
+                        <td>TDP (Watts)</td>
+                        <td>Price</td>
+                        <td>Add</td>
+                    </tr>
+                    
+                    <?php
+                        // Print out hardware parts with relevant information
+                        $gpu = getGPUs($dbConn, $_SESSION["sql"]);
+                        $i = 0;
+                        for($i; $i < count($gpu); $i++) {
+                            echo '<tr>';
+                            //echo '<td>'.$gpu[$i]["gpuName"].'</td>';
+                            echo '<td><a href="gpuSelect.php?selectDescId='.$gpu[$i]["gpuId"].'">'.$gpu[$i]["gpuName"].'</a></td>';
+                            echo '<td>'.$gpu[$i]["gpuManufacturer"].'</td>';
+                            echo '<td>'.$gpu[$i]["gpuBaseClock"].'</td>';
+                            echo '<td>'.$gpu[$i]["gpuMemSize"].'</td>';
+                            echo '<td>'.$gpu[$i]["gpuLengthInches"].'</td>';
+                            echo '<td>'.$gpu[$i]["gpuTDP"].'</td>';
+                            echo '<td>$'.$gpu[$i]["gpuPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/gpuSelectData.php?gpuId='.$gpu[$i]["gpuId"].
+                                 '&remove=false">add</a></td>';
+                            echo '</tr>';
+                        }
+                    ?>
+                </table>
+            </div>
             <?php
-                // Print out hardware parts with relevant information
-                $gpu = getGPUs($dbConn, $_SESSION["sql"]);
-                $i = 0;
-                for($i; $i < count($gpu); $i++) {
-                    echo '<tr>';
-                    //echo '<td>'.$gpu[$i]["gpuName"].'</td>';
-                    echo '<td><a href="gpuSelect.php?selectDescId='.$gpu[$i]["gpuId"].'">'.$gpu[$i]["gpuName"].'</a></td>';
-                    echo '<td>'.$gpu[$i]["gpuManufacturer"].'</td>';
-                    echo '<td>'.$gpu[$i]["gpuBaseClock"].'</td>';
-                    echo '<td>'.$gpu[$i]["gpuMemSize"].'</td>';
-                    echo '<td>'.$gpu[$i]["gpuLengthInches"].'</td>';
-                    echo '<td>'.$gpu[$i]["gpuTDP"].'</td>';
-                    echo '<td>$'.$gpu[$i]["gpuPrice"].'</td>';
-                    echo '<td><a href="/Team Project/Component Selection Data/gpuSelectData.php?gpuId='.$gpu[$i]["gpuId"].
-                         '&remove=false">add</a></td>';
-                    echo '</tr>';
-                }
-                
                 if($_GET["selectDescId"]!=NULL) {
+                    echo '<div class="displayInlineDescription">';
                     printGPUDescription($dbConn, $_GET["selectDescId"]);
+                    echo '</div>';
                 }
             ?>
-        </table>
+        </div>
     </form>
     
          <!-- Displays the form data -->

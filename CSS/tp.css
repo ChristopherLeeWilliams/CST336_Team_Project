@@ -7,3 +7,21 @@ p label {
     width: 130px;
 }
 
+a {
+    text-decoration: none;
+}
+
+div.displayInline {
+    display:inherit;
+}
+
+div.displayInlineDescription {
+    display:inherit;
+    border: solid black 2px;
+    margin-left: 15px;
+}
+
+div.displayMain {
+    display:inline-block;
+}
+

@@ -47,41 +47,48 @@
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
     <!-- Create form to select PC parts -->
     <form name="storageForm" method="GET" action="/Team Project/Component Selection Data/storageSelectData.php">
-        <table>
-            <!-- Put column names on top of the table -->
-            <tr>
-                <td>Name</td>
-                <td>Size</td>
-                <td>Type</td>
-                <td>RPM</td>
-                <td>Form Factor</td>
-                <td>Price</td>
-                <td>Add</td>
-            </tr>
-            
+        <div class="displayMain">
+            <div class="displayInline">
+                <table>
+                    <!-- Put column names on top of the table -->
+                    <tr>
+                        <td>Name</td>
+                        <td>Size</td>
+                        <td>Type</td>
+                        <td>RPM</td>
+                        <td>Form Factor</td>
+                        <td>Price</td>
+                        <td>Add</td>
+                    </tr>
+                    
+                    <?php
+                        // Print out hardware parts with relevant information
+                        $storage = getStorages($dbConn, $_SESSION["sql"]);
+                        $i = 0;
+                        for($i; $i < count($storage); $i++) {
+                            echo '<tr>';
+                            //echo '<td>'.$storage[$i]["storageName"].'</td>';
+                            echo '<td><a href="storageSelect.php?selectDescId='.$storage[$i]["storageId"].'">'.$storage[$i]["storageName"].'</a></td>';
+                            echo '<td>'.$storage[$i]["storageSize"].'</td>';
+                            echo '<td>'.$storage[$i]["storageType"].'</td>';
+                            echo '<td>'.$storage[$i]["storageRPM"].'</td>';
+                            echo '<td>'.$storage[$i]["storageFFType"].'</td>';
+                            echo '<td>$'.$storage[$i]["storagePrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/storageSelectData.php?storageId='.$storage[$i]["storageId"].
+                                 '&remove=false">add</a></td>';
+                            echo '</tr>';
+                        }
+                    ?>
+                </table>
+            </div>    
             <?php
-                // Print out hardware parts with relevant information
-                $storage = getStorages($dbConn, $_SESSION["sql"]);
-                $i = 0;
-                for($i; $i < count($storage); $i++) {
-                    echo '<tr>';
-                    //echo '<td>'.$storage[$i]["storageName"].'</td>';
-                    echo '<td><a href="storageSelect.php?selectDescId='.$storage[$i]["storageId"].'">'.$storage[$i]["storageName"].'</a></td>';
-                    echo '<td>'.$storage[$i]["storageSize"].'</td>';
-                    echo '<td>'.$storage[$i]["storageType"].'</td>';
-                    echo '<td>'.$storage[$i]["storageRPM"].'</td>';
-                    echo '<td>'.$storage[$i]["storageFFType"].'</td>';
-                    echo '<td>$'.$storage[$i]["storagePrice"].'</td>';
-                    echo '<td><a href="/Team Project/Component Selection Data/storageSelectData.php?storageId='.$storage[$i]["storageId"].
-                         '&remove=false">add</a></td>';
-                    echo '</tr>';
-                }
-                
                 if($_GET["selectDescId"]!=NULL) {
+                    echo '<div class="displayInlineDescription">';
                     printStorageDescription($dbConn, $_GET["selectDescId"]);
+                    echo '</div>';
                 }
             ?>
-        </table>
+        </div>
     </form>
     
          <!-- Displays the form data -->

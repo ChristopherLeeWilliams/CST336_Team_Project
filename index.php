@@ -45,6 +45,8 @@
         <title> Team Project</title>
     </head>
     <body>
+        <div class="displayMain">
+        <div class="displayInline">
         <table>
             <tr>
                 <td><b>Component</b></t>
@@ -122,6 +124,7 @@
                         }
                     ?>
             </tr>
+            <tr>
                 <td>Video Card</td>
                     <?php 
                         if ($_SESSION["gpuSelected"] == NULL) {
@@ -189,25 +192,29 @@
                 ?>
             </tr>
         </table>
-        
+        </div>
         <?php
-            if ((strcmp($_GET["descComponent"],"CPU") == 0)) {
-                printCPUDescription($dbConn, $_GET["descId"]);
-            } elseif( strcmp($_GET["descComponent"],"Motherboard") == 0 )  {
-                printMotherboardDescription($dbConn, $_GET["descId"]);
-            } elseif ( strcmp($_GET["descComponent"],"RAM") == 0 )  {
-                printRamDescription($dbConn, $_GET["descId"]);
-            } elseif ( strcmp($_GET["descComponent"],"Storage") == 0 ) {
-                printStorageDescription($dbConn, $_GET["descId"]);
-            } elseif ( strcmp($_GET["descComponent"],"GPU") == 0 ) {
-                printGPUDescription($dbConn, $_GET["descId"]);
-            } elseif ( strcmp($_GET["descComponent"],"Case") == 0 ) {
-                printCaseDescription($dbConn, $_GET["descId"]);
-            } elseif ( strcmp($_GET["descComponent"],"PSU") == 0 ) {
-                printPSUDescription($dbConn, $_GET["descId"]);
-            }
+        if ($_GET["descComponent"] != NULL) {
+            echo '<div class="displayInlineDescription">';
+                if ((strcmp($_GET["descComponent"],"CPU") == 0)) {
+                    printCPUDescription($dbConn, $_GET["descId"]);
+                } elseif( strcmp($_GET["descComponent"],"Motherboard") == 0 )  {
+                    printMotherboardDescription($dbConn, $_GET["descId"]);
+                } elseif ( strcmp($_GET["descComponent"],"RAM") == 0 )  {
+                    printRamDescription($dbConn, $_GET["descId"]);
+                } elseif ( strcmp($_GET["descComponent"],"Storage") == 0 ) {
+                    printStorageDescription($dbConn, $_GET["descId"]);
+                } elseif ( strcmp($_GET["descComponent"],"GPU") == 0 ) {
+                    printGPUDescription($dbConn, $_GET["descId"]);
+                } elseif ( strcmp($_GET["descComponent"],"Case") == 0 ) {
+                    printCaseDescription($dbConn, $_GET["descId"]);
+                } elseif ( strcmp($_GET["descComponent"],"PSU") == 0 ) {
+                    printPSUDescription($dbConn, $_GET["descId"]);
+                }
+            echo '</div>';
+        }
         ?>
-        
+        </div>
          <form name="compatibilityForm" method="GET" action="compatibilityCheck.php">
              <input type="submit" name="submit" value="Check compatibility">
          </form>

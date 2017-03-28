@@ -46,39 +46,46 @@
     <title>RAM</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
     <form name="ramForm" method="GET" action="/Team Project/Component Selection Data/ramSelectData.php">
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Type</td>
-                <td>Size (GB)</td>
-                <td>Speed</td>
-                <td>Cas</td>
-                <td>Price</td>
-                <td>Add</td>
-            </tr>
-            
+        <div class="displayMain">
+            <div class="displayInline">
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>Type</td>
+                        <td>Size (GB)</td>
+                        <td>Speed</td>
+                        <td>Cas</td>
+                        <td>Price</td>
+                        <td>Add</td>
+                    </tr>
+                    
+                    <?php
+                        $ram = getRam($dbConn, $_SESSION["sql"]);
+                        $i = 0;
+                        for($i; $i < count($ram); $i++) {
+                            echo '<tr>';
+                            //echo '<td>'.$ram[$i]["ramName"].'</td>';
+                            echo '<td><a href="ramSelect.php?selectDescId='.$ram[$i]["ramId"].'">'.$ram[$i]["ramName"].'</a></td>';
+                            echo '<td>'.$ram[$i]["ramType"].'</td>';
+                            echo '<td>'.$ram[$i]["ramSizeGB"].'</td>';
+                            echo '<td>'.$ram[$i]["ramSpeed"].'</td>';
+                            echo '<td>'.$ram[$i]["ramCas"].'</td>';
+                            echo '<td>$'.$ram[$i]["ramPrice"].'</td>';
+                            echo '<td><a href="/Team Project/Component Selection Data/ramSelectData.php?ramId='.$ram[$i]["ramId"].
+                                 '&remove=false">add</a></td>';   
+                            echo '</tr>';
+                        }
+                    ?>
+                </table>
+            </div>
             <?php
-                $ram = getRam($dbConn, $_SESSION["sql"]);
-                $i = 0;
-                for($i; $i < count($ram); $i++) {
-                    echo '<tr>';
-                    //echo '<td>'.$ram[$i]["ramName"].'</td>';
-                    echo '<td><a href="ramSelect.php?selectDescId='.$ram[$i]["ramId"].'">'.$ram[$i]["ramName"].'</a></td>';
-                    echo '<td>'.$ram[$i]["ramType"].'</td>';
-                    echo '<td>'.$ram[$i]["ramSizeGB"].'</td>';
-                    echo '<td>'.$ram[$i]["ramSpeed"].'</td>';
-                    echo '<td>'.$ram[$i]["ramCas"].'</td>';
-                    echo '<td>$'.$ram[$i]["ramPrice"].'</td>';
-                    echo '<td><a href="/Team Project/Component Selection Data/ramSelectData.php?ramId='.$ram[$i]["ramId"].
-                         '&remove=false">add</a></td>';   
-                    echo '</tr>';
-                }
-                
                 if($_GET["selectDescId"]!=NULL) {
+                    echo '<div class="displayInlineDescription">';
                     printRamDescription($dbConn, $_GET["selectDescId"]);
+                    echo '</div>';
                 }
             ?>
-        </table>
+        </div>
     </form>
     
          <!-- Displays the form data -->
