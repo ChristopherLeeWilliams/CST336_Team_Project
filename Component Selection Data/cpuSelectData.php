@@ -29,6 +29,7 @@
         $cpu["cpuPrice"] = $row["cpuPrice"];
         $cpu["cpuSocketId"] = $row["cpuSocketId"];
         $cpu["cpuTDP"] = $row["cpuTDP"];
+        $cpu["cpuId"] = $row["cpuId"];
         
         return $cpu;
     }

@@ -11,6 +11,7 @@
         $_SESSION["mbSelected"]= getMbData($dbConn,$_GET["mbId"]);
         $_SESSION["compatibilityChecked"] = false;
     } 
+    
     header("Location: /Team Project/index.php");
     
     function getMbData($dbConn, $id) {
@@ -27,6 +28,7 @@
         $stmt->execute();
         $mb = [];
         $row = $stmt->fetch();
+        $mb["mbId"] = $row["mbId"];
         $mb["mbName"] = $row["mbName"];
         $mb["mbPrice"] = $row["mbPrice"];
         $mb["mbSocketId"] = $row["mbSocketId"];

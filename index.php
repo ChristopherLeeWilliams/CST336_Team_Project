@@ -1,5 +1,6 @@
 <?php 
     require_once('connection.php');
+    require_once('descriptionFunctions.php');
     session_start();
     
     $_SESSION["totalPrice"] = 0;
@@ -27,7 +28,11 @@
                             echo '<a href="/Team Project/Component Selection/cpuSelect.php"> Choose A CPU </a>';
                             echo '</td>';
                         } else {
-                            echo '<td>'.$_SESSION["cpuSelected"]["cpuName"].'</td>';
+                            //echo '<td>'.$_SESSION["cpuSelected"]["cpuName"].'</td>';
+                            
+                            echo '<td><a href="/Team Project/index.php?descId='.$_SESSION["cpuSelected"]["cpuId"].
+                                        '&descComponent=CPU">'.$_SESSION["cpuSelected"]["cpuName"].'</a></td>';
+                                        
                             echo '<td>'.$_SESSION["cpuSelected"]["cpuPrice"].'</td>';
                             $_SESSION["totalPrice"] += $_SESSION["cpuSelected"]["cpuPrice"];
                             echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?remove=true">X</a></td>';
@@ -42,7 +47,9 @@
                             echo '<a href="/Team Project/Component Selection/motherboardSelect.php"> Choose A Motherboard</a>';
                             echo '</td>';
                         } else {
-                            echo '<td>'.$_SESSION["mbSelected"]["mbName"].'</td>';
+                            echo '<td><a href="/Team Project/index.php?descId='.$_SESSION["mbSelected"]["mbId"].
+                                        '&descComponent=Motherboard">'.$_SESSION["mbSelected"]["mbName"].'</a></td>';
+                            
                             echo '<td>'.$_SESSION["mbSelected"]["mbPrice"].'</td>';
                             $_SESSION["totalPrice"] += $_SESSION["mbSelected"]["mbPrice"];
                             echo '<td><a href="/Team Project/Component Selection Data/motherboardSelectData.php?remove=true">X</a></td>';
@@ -57,7 +64,9 @@
                             echo '<a href="/Team Project/Component Selection/ramSelect.php"> Choose Memory </a>';
                             echo '</td>';
                         } else {
-                            echo '<td>'.$_SESSION["ramSelected"]["ramName"].'</td>';
+                            //echo '<td>'.$_SESSION["ramSelected"]["ramName"].'</td>';
+                            echo '<td><a href="/Team Project/index.php?descId='.$_SESSION["ramSelected"]["ramId"].
+                                        '&descComponent=RAM">'.$_SESSION["ramSelected"]["ramName"].'</a></td>';
                             echo '<td>'.$_SESSION["ramSelected"]["ramPrice"].'</td>';
                             $_SESSION["totalPrice"] += $_SESSION["ramSelected"]["ramPrice"];
                             echo '<td><a href="/Team Project/Component Selection Data/ramSelectData.php?remove=true">X</a></td>';
@@ -121,7 +130,9 @@
                             $_SESSION["totalPrice"] += $_SESSION["psuSelected"]["psuPrice"];
                             echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?remove=true">X</a></td>';
                         }
-                        
+                        if($_SESSION["compatibilityChecked"] == false) {
+                            $_SESSION["errors"] = NULL;
+                        }
                         $i = 0;
                         for($i; $i < count($_SESSION["errors"]); $i++) {
                             echo $_SESSION["errors"][$i].'</br>';
@@ -136,6 +147,16 @@
                 ?>
             </tr>
         </table>
+        
+        <?php
+            if ((strcmp($_GET["descComponent"],"CPU") == 0)) {
+                printCPUDescription($dbConn, $_GET["descId"]);
+            } elseif( (strcmp($_GET["descComponent"],"Motherboard") == 0) )  {
+                printMotherboardDescription($dbConn, $_GET["descId"]);
+            } elseif ( (strcmp($_GET["descComponent"],"RAM") == 0) )  {
+                printRamDescription($dbConn, $_GET["descId"]);
+            }
+        ?>
         
          <form name="compatibilityForm" method="GET" action="compatibilityCheck.php">
              <input type="submit" name="submit" value="Check compatibility">
