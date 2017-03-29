@@ -20,7 +20,7 @@
         
         // RAM.type == Motherboard.ramType
         if (ramTypeMismatch()) {
-            $errors[$i] = "Memory type selected is not compatable with the motherboard";
+            $errors[$i] = "Memory type selected is not compatible with the motherboard";
             $i++;
         }
         
@@ -42,12 +42,13 @@
             $i++;
         }
         
-        // Total TDP <= PSU.watts (warning if within 50 watts)
+        // Total TDP <= PSU.watts (warning if within 100 watts)
         $excessWatts = excessPSUPower();
         if($excessWatts < 100 && $excessWatts > 0) {
-            $errors[$i] = "Power consumption nears power supply's max, computer may be unstable";
+            $errors[$i] = "Power consumption approaches power supply's max, computer may be unstable";
             $i++;
-        }elseif ($excessWatts <= 0) {
+        }elseif ($excessWatts <= 0) { 
+            // if the difference = 0 its assumed to not be stable (considering other parts)
             $errors[$i] = "Power supply does not supply enough power for the computer";
             $i++;
         }

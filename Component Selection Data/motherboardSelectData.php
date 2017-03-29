@@ -5,11 +5,13 @@
     if($_GET["remove"] == true) {
         $_SESSION["mbSelected"] = NULL;
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     }
     
     if ($_GET["mbId"] != NULL) {
         $_SESSION["mbSelected"]= getMbData($dbConn,$_GET["mbId"]);
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     } 
     
     header("Location: /Team Project/index.php");

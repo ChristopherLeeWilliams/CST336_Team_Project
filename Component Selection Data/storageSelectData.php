@@ -6,10 +6,12 @@
     if($_GET["remove"] == true) {
         $_SESSION["storageSelected"] = NULL;
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     }
     
     if ($_GET["storageId"] != NULL) {
         $_SESSION["storageSelected"]= getStorageData($dbConn,$_GET["storageId"]);
+        $_SESSION["checkoutRun"] = false;
         $_SESSION["compatibilityChecked"] = false;
     } 
     header("Location: /Team Project/index.php");

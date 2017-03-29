@@ -6,11 +6,13 @@
     if($_GET["remove"] == true) {
         $_SESSION["caseSelected"] = NULL;
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     }
     
     if ($_GET["caseId"] != NULL) {
         $_SESSION["caseSelected"]= getCaseData($dbConn,$_GET["caseId"]);
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     } 
     header("Location: /Team Project/index.php");
     

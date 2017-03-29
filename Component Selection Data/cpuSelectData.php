@@ -5,11 +5,13 @@
     if($_GET["remove"] == true) {
         $_SESSION["cpuSelected"] = NULL;
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     }
     
     if ($_GET["cpuId"] != NULL) {
         $_SESSION["cpuSelected"]= getCPUData($dbConn,$_GET["cpuId"]);
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     } 
     header("Location: /Team Project/index.php");
     

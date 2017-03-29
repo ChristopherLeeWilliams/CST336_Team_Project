@@ -64,7 +64,7 @@
                         <td><b>RPM</b></td>
                         <td><b>Form Factor</b></td>
                         <td><b>Price</b></td>
-                        <td>Add</td>
+                        <td></td>
                     </tr>
                     
                     <?php

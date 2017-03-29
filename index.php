@@ -195,7 +195,7 @@
         <div class="errorMessage">
             <?php
                 // DISPLAY COMPATIBILITY ERRORS
-                if($_SESSION["compatibilityChecked"] == false) {
+                if(($_SESSION["compatibilityChecked"] == false) && ($_SESSION["checkoutRun"] == false)) {
                     $_SESSION["errors"] = NULL;
                 }
                 $i = 0;
@@ -235,7 +235,7 @@
                 </form>
             </div>
             <div class="displayInline">
-                <form name="checkoutForm" method="POST" action="checkout.php">
+                <form name="checkoutForm" method="GET" action="checkout.php">
                     <input type="submit" name="submit" value="Checkout">
                 </form>
             </div>

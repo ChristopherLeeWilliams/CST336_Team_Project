@@ -6,11 +6,13 @@
     if($_GET["remove"] == true) {
         $_SESSION["gpuSelected"] = NULL;
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     }
     
     if ($_GET["gpuId"] != NULL) {
         $_SESSION["gpuSelected"]= getGPUData($dbConn,$_GET["gpuId"]);
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     } 
     header("Location: /Team Project/index.php");
     

@@ -1,7 +1,8 @@
 <?php
     session_start();
     $checkoutError = [];
-    if ($_SESSION["compatibilityChecked"] != true){
+    $_SESSION["checkoutRun"] = true;
+    if ($_SESSION["compatibilityChecked"] == false){
         $checkoutError[0] = 'Checkout will not be performed until a compatibility check is performed on current components.';
         $_SESSION["errors"] = $checkoutError;
         header("Location: index.php");

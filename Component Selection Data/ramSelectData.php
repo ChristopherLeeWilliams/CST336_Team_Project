@@ -5,11 +5,13 @@
     if($_GET["remove"] == true) {
         $_SESSION["ramSelected"] = NULL;
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     }
     
     if ($_GET["ramId"] != NULL) {
         $_SESSION["ramSelected"]= getRAMData($dbConn,$_GET["ramId"]);
         $_SESSION["compatibilityChecked"] = false;
+        $_SESSION["checkoutRun"] = false;
     } 
     //var_dump(getRAMData($dbConn,$_GET["ramId"]));
     header("Location: /Team Project/index.php");
