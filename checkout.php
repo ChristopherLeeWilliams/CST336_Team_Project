@@ -14,7 +14,11 @@
 
 <html>
     <link rel="stylesheet" type="text/css"  href="/Team Project/CSS/tp.css">
-    <h1><u>Checkout Details</u></h1>
+    <div class="pageTitle" >
+        Checkout Details
+    </div>
+    <div class="border"></div>
+    <div class="body">
 <div class="checkoutDisplay">
         <table>
 
@@ -74,5 +78,8 @@
                     echo '<th>$'.$_SESSION["totalPrice"].'</th>';
                 ?>
             </tr>
+            </table>
     </div>
+    </div>
+    <div class="border"></div>
 </html>
