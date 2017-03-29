@@ -1,5 +1,6 @@
 # CST336_Team_Project
 Design Document: https://docs.google.com/a/csumb.edu/document/d/1HcRxjMti0KEApuC_AukS5aeJlxN9kL4jLTnGE_eGZZY/edit?usp=sharing
+Trello: https://trello.com/b/ymPwTm2X
 
 Team Project Description
 
