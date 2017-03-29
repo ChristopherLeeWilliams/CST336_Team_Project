@@ -63,10 +63,16 @@
 <html>
     <title>Motherboards</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <div class="pageTitle" >
+        Select Motherboard
+    </div>
+    <div class="border"></div>
+    <div class="body">
     <form name="motherboardForm" method="GET" action="/Team Project/Component Selection Data/motherboardSelectData.php">
         <div class="displayMain">
             <div class="displayInline">
-                <table>
+                <table class="selectTable">
                     <tr>
                         <td><b>Name</b></td>
                         <td><b>Socket</b></td>
@@ -156,8 +162,8 @@
                 
                 <p><input type="submit" name="searchMotherboards" value="Search Motherboards"/></p>
             </form>
-    
-
+        </div>
+    <div class="border"></div>    
 </html>
 
 

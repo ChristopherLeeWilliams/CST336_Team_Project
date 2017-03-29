@@ -5,7 +5,7 @@
         $checkoutError[0] = 'Checkout will not be performed until a compatibility check is performed on current components.';
         $_SESSION["errors"] = $checkoutError;
         header("Location: index.php");
-    } elseif($_SESSION["errors"][0] != NULL) {
+    } elseif($_SESSION["errors"][0] != "Parts Are Compatible!") {
         $checkoutError[0] = 'Checkout will not be performed until all items are selected and found to be compatible.';
         $_SESSION["errors"] = $checkoutError;
         header("Location: index.php");

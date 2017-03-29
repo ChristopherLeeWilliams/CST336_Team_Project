@@ -10,7 +10,6 @@
     if (!allComponentsSelected()) {
         $errors[$i] = "One or more components not selected";
         $i++;
-        header("Location: index.php");
     } else {
         
         // CPU.socket  == Motherboard.socketType
@@ -52,6 +51,10 @@
             $errors[$i] = "Power supply does not supply enough power for the computer";
             $i++;
         }
+    }
+    
+    if(count($errors) == 0) {
+        $errors[0] = "Parts Are Compatible!";
     }
     
     $_SESSION["errors"] = $errors;

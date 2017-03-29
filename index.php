@@ -41,10 +41,16 @@
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" type="text/css"  href="/Team Project/CSS/tp.css">
+    
+    <div class="pageTitle" >
+        Build A PC
+    </div>
+    <div class="border"></div>
+    
     <head>
         <title> Team Project</title>
     </head>
-    <body>
+    <div class="body">
         <div class="displayMain">
         <div class="displayInline">
         <table>
@@ -171,13 +177,6 @@
                             $_SESSION["totalPrice"] += $_SESSION["psuSelected"]["psuPrice"];
                             echo '<td><a href="/Team Project/Component Selection Data/psuSelectData.php?remove=true">X</a></td>';
                         }
-                        if($_SESSION["compatibilityChecked"] == false) {
-                            $_SESSION["errors"] = NULL;
-                        }
-                        $i = 0;
-                        for($i; $i < count($_SESSION["errors"]); $i++) {
-                            echo $_SESSION["errors"][$i].'</br>';
-                        }
                     ?>
             </tr>
             <tr>
@@ -192,6 +191,19 @@
                 ?>
             </tr>
         </table>
+        
+        <div class="errorMessage">
+            <?php
+                // DISPLAY COMPATIBILITY ERRORS
+                if($_SESSION["compatibilityChecked"] == false) {
+                    $_SESSION["errors"] = NULL;
+                }
+                $i = 0;
+                for($i; $i < count($_SESSION["errors"]); $i++) {
+                    echo $_SESSION["errors"][$i].'</br>';
+                }
+            ?>
+        </div>
         </div>
         <?php
         if ($_GET["descComponent"] != NULL) {
@@ -228,5 +240,6 @@
                 </form>
             </div>
          </div>
-    </body>
+    </div>
+    <div class="border"></div>
 </html>

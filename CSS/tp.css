@@ -1,5 +1,20 @@
+html {
+    background-color: #ECF7F3;
+    padding: 0%;
+    font-family: Calibri;
+}
+
 td, tr{
     padding: 5px;
+}
+
+.selectTable tr:nth-child(odd) {
+    background-color: #F4F3F4;
+    
+}
+
+table {
+    font-size: 20px;
 }
 
 p label {
@@ -9,19 +24,66 @@ p label {
 
 a {
     text-decoration: none;
+    color: #0470b1;
+}
+
+.body {
+    background-color: white;
+    padding: 5px;
 }
 
 div.displayInline {
     display:inherit;
 }
 
-div.displayInlineDescription {
+.displayInline form {
+    margin: 0px;
+}
+
+.displayInlineDescription {
     display:inherit;
     border: solid black 2px;
-    margin-left: 15px;
+    border-radius: 10px;
+    margin-left: 20px;
+    background-color: #F7C398;
+    font-family: ARIAL;
 }
 
 div.displayMain {
     display:inline-block;
+    margin-bottom: 0px;
+}
+
+.displayMain input {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+
+.errorMessage {
+    color: red;
+    margin:5px;
+    font-size: 20px;
+}
+
+.pageTitle {
+    text-align: center;
+    font-size: 40px;
+    font-family: Verdana;
+    font-weight: bold;
+    padding: 5px;
+    padding-top:10px;
+    background-color: #75bb95;
+    border-top: solid black 2px;
+    min-height: 55px;
+}
+
+.border {
+    margin:0px;
+    background-color: #559d9f;
+    min-height: 20px;
+    border-bottom: solid black 2px;
+    border-top: solid black 2px;
 }
 

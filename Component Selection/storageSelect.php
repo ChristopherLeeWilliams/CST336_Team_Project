@@ -45,11 +45,17 @@
 <html>
     <title>Storages</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <div class="pageTitle" >
+        Select Storage
+    </div>
+    <div class="border"></div>
+    <div class="body">
     <!-- Create form to select PC parts -->
+    
     <form name="storageForm" method="GET" action="/Team Project/Component Selection Data/storageSelectData.php">
         <div class="displayMain">
             <div class="displayInline">
-                <table>
+                <table class="selectTable">
                     <!-- Put column names on top of the table -->
                     <tr>
                         <td><b>Name</b></td>
@@ -121,7 +127,8 @@
                 
                 <p><input type="submit" name="searchStorages" value="Search Storages"/></p>
             </form>    
-    
+    </div>
+    <div class="border"></div>
 </html>
 
 <?php

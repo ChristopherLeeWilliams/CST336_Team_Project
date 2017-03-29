@@ -45,10 +45,15 @@
 <html>
     <title>RAM</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <div class="pageTitle" >
+        Select Memory
+    </div>
+    <div class="border"></div>
+    <div class="body">
     <form name="ramForm" method="GET" action="/Team Project/Component Selection Data/ramSelectData.php">
         <div class="displayMain">
             <div class="displayInline">
-                <table>
+                <table class="selectTable">
                     <tr>
                         <td><b>Name</b></td>
                         <td><b>Type</b></td>
@@ -120,8 +125,8 @@
                 
                 <p><input type="submit" name="searchRAM" value="Search RAM"/></p>
             </form>
-    
-
+        </div>
+    <div class="border"></div>
 </html>
 
 

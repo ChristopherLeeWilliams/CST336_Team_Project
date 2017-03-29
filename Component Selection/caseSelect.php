@@ -53,11 +53,16 @@
 <html>
     <title>Cases</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <div class="pageTitle" >
+        Select Case
+    </div>
+    <div class="border"></div>
+    <div class="body">
     <!-- Create form to select PC parts -->
     <form name="caseForm" method="GET" action="/Team Project/Component Selection Data/caseSelectData.php">
         <div class="displayMain">
             <div class="displayInline">
-                <table>
+                <table class="selectTable">
                     <!-- Put column names on top of the table -->
                     <tr>
                         <td><b>Name</b></td>
@@ -99,51 +104,52 @@
         </div>
     </form>
     
-         <!-- Displays the form data -->
-         <!-- Help saving form data across states: http://stackoverflow.com/a/2246244 -->
-        <div class="form" style="padding-left: 15px;">
-            <form action="caseSelect.php" method="GET">
-                
-                <!-- Select Minimum Number of 2.5" Bays -->
-                <p><label for="min25Bays">Min. # 2.5" Bays:</label>
-                <select name="min25Bays" style="width:50px">
-                    <option <?php if ($_SESSION['min25Bays'] == '') { ?>selected="true" <?php }; ?> value=''></option>
-                    <option <?php if ($_SESSION['min25Bays'] == 1) { ?>selected="true" <?php }; ?> value="1">1</option>
-                    <option <?php if ($_SESSION['min25Bays'] == 2) { ?>selected="true" <?php }; ?> value="2">2</option>
-                    <option <?php if ($_SESSION['min25Bays'] == 4) { ?>selected="true" <?php }; ?> value="4">4</option>
-                    <option <?php if ($_SESSION['min25Bays'] == 6) { ?>selected="true" <?php }; ?> value="6">6</option>
-                    <option <?php if ($_SESSION['min25Bays'] == 8) { ?>selected="true" <?php }; ?> value="8">8</option>
-                </select></p>
-                
-                <!-- Select Minimum Number of 3.5" Bays -->
-                <p><label for="min35Bays">Min. # 3.5" Bays:</label>
-                <select name="min35Bays" style="width:50px">
-                    <option <?php if ($_SESSION['min35Bays'] == '') { ?>selected="true" <?php }; ?> value=''></option>
-                    <option <?php if ($_SESSION['min35Bays'] == 2) { ?>selected="true" <?php }; ?> value="2">2</option>
-                    <option <?php if ($_SESSION['min35Bays'] == 4) { ?>selected="true" <?php }; ?> value="4">4</option>
-                    <option <?php if ($_SESSION['min35Bays'] == 6) { ?>selected="true" <?php }; ?> value="6">6</option>
-                    <option <?php if ($_SESSION['min35Bays'] == 8) { ?>selected="true" <?php }; ?> value="8">8</option>
-                </select></p>
-                
-                <!-- Select maximum price -->
-                <p><label for="maxPrice">Max Price: </label>
-                <input type="number" name="maxPrice" min="0" max="1000" step=".01" style="width:100px;" value="<?php echo isset($_SESSION['maxPrice']) ? $_SESSION['maxPrice'] : '' ?>" />
-                
-                <!-- Select table order -->
-                <p><label for="orderBy">Order By:</label>
-                <select name="orderBy" style="width:150px">
-                    <option <?php if ($_SESSION['orderBy'] == 'caseName') { ?>selected="true" <?php }; ?> value="caseName">Name</option>
-                    <option <?php if ($_SESSION['orderBy'] == 'casePrice') { ?>selected="true" <?php }; ?> value="casePrice">Price</option>
-                </select></p>
-                
-                <p><label for="sortOrder" style="width: 125px">Sort Order:</label>
-                <input type="radio" name="sortOrder" checked <?php if ($_SESSION['sortOrder'] == 'asc') { ?>checked <?php }; ?> value="asc">Ascending &nbsp &nbsp &nbsp
-                <input type="radio" name="sortOrder" <?php if ($_SESSION['sortOrder'] == 'desc') { ?>checked <?php }; ?> value="desc">Descending</p>
-                
-                <p><input type="submit" name="searchCases" value="Search Cases"/></p>
-            </form>
-    
-
+    <!-- Displays the form data -->
+    <!-- Help saving form data across states: http://stackoverflow.com/a/2246244 -->
+    <div class="form" style="padding-left: 15px;">
+        <form action="caseSelect.php" method="GET">
+            
+            <!-- Select Minimum Number of 2.5" Bays -->
+            <p><label for="min25Bays">Min. # 2.5" Bays:</label>
+            <select name="min25Bays" style="width:50px">
+                <option <?php if ($_SESSION['min25Bays'] == '') { ?>selected="true" <?php }; ?> value=''></option>
+                <option <?php if ($_SESSION['min25Bays'] == 1) { ?>selected="true" <?php }; ?> value="1">1</option>
+                <option <?php if ($_SESSION['min25Bays'] == 2) { ?>selected="true" <?php }; ?> value="2">2</option>
+                <option <?php if ($_SESSION['min25Bays'] == 4) { ?>selected="true" <?php }; ?> value="4">4</option>
+                <option <?php if ($_SESSION['min25Bays'] == 6) { ?>selected="true" <?php }; ?> value="6">6</option>
+                <option <?php if ($_SESSION['min25Bays'] == 8) { ?>selected="true" <?php }; ?> value="8">8</option>
+            </select></p>
+            
+            <!-- Select Minimum Number of 3.5" Bays -->
+            <p><label for="min35Bays">Min. # 3.5" Bays:</label>
+            <select name="min35Bays" style="width:50px">
+                <option <?php if ($_SESSION['min35Bays'] == '') { ?>selected="true" <?php }; ?> value=''></option>
+                <option <?php if ($_SESSION['min35Bays'] == 2) { ?>selected="true" <?php }; ?> value="2">2</option>
+                <option <?php if ($_SESSION['min35Bays'] == 4) { ?>selected="true" <?php }; ?> value="4">4</option>
+                <option <?php if ($_SESSION['min35Bays'] == 6) { ?>selected="true" <?php }; ?> value="6">6</option>
+                <option <?php if ($_SESSION['min35Bays'] == 8) { ?>selected="true" <?php }; ?> value="8">8</option>
+            </select></p>
+            
+            <!-- Select maximum price -->
+            <p><label for="maxPrice">Max Price: </label>
+            <input type="number" name="maxPrice" min="0" max="1000" step=".01" style="width:100px;" value="<?php echo isset($_SESSION['maxPrice']) ? $_SESSION['maxPrice'] : '' ?>" />
+            
+            <!-- Select table order -->
+            <p><label for="orderBy">Order By:</label>
+            <select name="orderBy" style="width:150px">
+                <option <?php if ($_SESSION['orderBy'] == 'caseName') { ?>selected="true" <?php }; ?> value="caseName">Name</option>
+                <option <?php if ($_SESSION['orderBy'] == 'casePrice') { ?>selected="true" <?php }; ?> value="casePrice">Price</option>
+            </select></p>
+            
+            <p><label for="sortOrder" style="width: 125px">Sort Order:</label>
+            <input type="radio" name="sortOrder" checked <?php if ($_SESSION['sortOrder'] == 'asc') { ?>checked <?php }; ?> value="asc">Ascending &nbsp &nbsp &nbsp
+            <input type="radio" name="sortOrder" <?php if ($_SESSION['sortOrder'] == 'desc') { ?>checked <?php }; ?> value="desc">Descending</p>
+            
+            <p><input type="submit" name="searchCases" value="Search Cases"/></p>
+        </form>
+    </div>
+    </div>
+    <div class="border"></div>
 </html>
 
 <?php

@@ -45,12 +45,17 @@
 <html>
     <title>CPUs</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <div class="pageTitle" >
+        Select CPU
+    </div>
+    <div class="border"></div>
+    <div class="body">
     <!-- Create form to select PC parts -->
 
     <form name="cpuForm" method="GET" action="/Team Project/Component Selection Data/cpuSelectData.php">
         <div class="displayMain">
             <div class="displayInline">
-                <table>
+                <table class="selectTable">
                     <!-- Put column names on top of the table -->
                     <tr>
                         <td><b>Name</b></td>
@@ -77,7 +82,7 @@
                             echo '<td>'.$CPUs[$i]["cpuNumCores"].'</td>';
                             echo '<td>'.$CPUs[$i]["cpuTDP"].'</td>';
                             echo '<td>$'.$CPUs[$i]["cpuPrice"].'</td>';
-                            echo '<td><a href="/Team Project/Component Selection Data/cpuSelectData.php?cpuId='.$CPUs[$i]["cpuId"].
+                            echo '<td class="addSelect"><a href="/Team Project/Component Selection Data/cpuSelectData.php?cpuId='.$CPUs[$i]["cpuId"].
                                  '&remove=false">add</a></td>';
                             echo '</tr>';
                         }          
@@ -126,7 +131,8 @@
                 
                 <p><input type="submit" name="searchCPUs" value="Search CPUs"/></p>
             </form>
-    
+        </div>
+    <div class="border"></div>
 </html>
 
 <?php

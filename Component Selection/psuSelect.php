@@ -52,11 +52,17 @@
 <html>
     <title>PSUs</title>
     <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <link rel="stylesheet" type="text/css"  href="../CSS/tp.css">
+    <div class="pageTitle" >
+        Select Power Supply
+    </div>
+    <div class="border"></div>
+    <div class="body">
     <!-- Create form to select PC parts -->
     <form name="psuForm" method="GET" action="/Team Project/Component Selection Data/psuSelectData.php">
         <div class="displayMain">
             <div class="displayInline">
-                <table>
+                <table class="selectTable">
                     <!-- Put column names on top of the table -->
                     <tr>
                         <td><b>Name</b></td>
@@ -137,7 +143,8 @@
                 
                 <p><input type="submit" name="searchPSUs" value="Search PSUs"/></p>
             </form>
-
+         </div>
+    <div class="border"></div>
 </html>
 
 <?php
